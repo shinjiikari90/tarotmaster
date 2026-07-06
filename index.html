@@ -13,12 +13,12 @@
     
     <style>
         :root {
-            --color-space-dark: #090A15;
-            --color-cosmic-purple: #130F26;
-            --color-mystic-indigo: #211947;
-            --color-gold-light: #F3E5AB;
-            --color-gold-bright: #D4AF37;
-            --color-gold-dark: #AA7C11;
+            --color-space-dark: #070812;
+            --color-cosmic-purple: #110d2c;
+            --color-mystic-indigo: #1b1440;
+            --color-gold-light: #F9EFAF;
+            --color-gold-bright: #E5C158;
+            --color-gold-dark: #B58F28;
         }
 
         body {
@@ -85,13 +85,13 @@
             pointer-events: none;
             z-index: 0;
             background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+                radial-gradient(white, rgba(255,255,255,.25) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.18) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.12) 2px, transparent 40px);
             background-size: 550px 550px, 350px 350px, 250px 250px;
             background-position: 0 0, 40px 60px, 130px 270px;
-            opacity: 0.25;
-            animation: starMovement 120s linear infinite;
+            opacity: 0.3;
+            animation: starMovement 140s linear infinite;
         }
 
         @keyframes starMovement {
@@ -101,10 +101,10 @@
 
         /* 오라 광원 효과 */
         .mystic-glow {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.05);
+            box-shadow: 0 0 20px rgba(229, 193, 88, 0.15), inset 0 0 20px rgba(229, 193, 88, 0.05);
         }
         .mystic-glow-hover:hover {
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 30px rgba(229, 193, 88, 0.45);
             border-color: var(--color-gold-bright);
         }
 
@@ -143,30 +143,30 @@
     <div class="starfield"></div>
 
     <!-- UI ALERT DIALOG (alert 대용 커스텀 모달) -->
-    <div id="customAlert" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden">
-        <div class="w-full max-w-sm bg-gradient-to-b from-[#1C163D] to-[#0D0A1F] border border-[#D4AF37]/50 rounded-2xl p-6 text-center shadow-2xl">
-            <div class="text-[#D4AF37] text-4xl mb-3">
+    <div id="customAlert" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
+        <div class="w-full max-w-sm bg-gradient-to-b from-[#1C163D] to-[#0D0A1F] border border-[#E5C158]/50 rounded-2xl p-6 text-center shadow-2xl">
+            <div class="text-[#E5C158] text-4xl mb-3">
                 <i class="fa-solid fa-circle-exclamation"></i>
             </div>
             <h4 class="serif-font text-lg text-white mb-2 font-semibold">아스트라 타로 안내</h4>
             <p id="alertMessage" class="text-sm text-slate-300 mb-5 leading-relaxed">경고 메시지 영역</p>
-            <button onclick="closeAlert()" class="w-full py-2.5 bg-gradient-to-r from-[#AA7C11] to-[#D4AF37] text-black font-semibold rounded-lg hover:shadow-lg transition">확인</button>
+            <button onclick="closeAlert()" class="w-full py-2.5 bg-gradient-to-r from-[#B58F28] to-[#E5C158] text-black font-semibold rounded-lg hover:shadow-lg transition">확인</button>
         </div>
     </div>
 
     <!-- API KEY CONFIG MODAL (옵션) -->
     <div id="apiKeyModal" class="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
-        <div class="w-full max-w-md bg-[#161233] border border-[#D4AF37]/30 rounded-2xl p-6 shadow-2xl">
+        <div class="w-full max-w-md bg-[#161233] border border-[#E5C158]/30 rounded-2xl p-6 shadow-2xl">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="serif-font text-xl text-[#F3E5AB] font-bold">개인 Gemini API Key 설정</h3>
+                <h3 class="serif-font text-xl text-[#F9EFAF] font-bold">개인 Gemini API Key 설정</h3>
                 <button onclick="toggleApiKeyModal(false)" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
             </div>
             <p class="text-xs text-slate-400 mb-4 leading-relaxed">
-                기본 제공되는 테스트 키가 소진되었거나 원활한 작동을 원하시면 본인의 Google AI API 키를 입력하세요. 입력하지 않으셔도 자동 무료 채널을 통해 점사를 제공해 드립니다.
+                기본 제공되는 테스트 키가 소진되었거나 더욱 원활하고 무제한의 작동을 원하시면 본인의 Google AI API 키를 입력하세요. 입력하지 않으셔도 내부 데모 채널을 통해 점사를 제공해 드립니다.
             </p>
-            <input id="apiKeyValue" type="password" placeholder="AIzaSy..." class="w-full px-4 py-3 bg-[#0B081F] border border-slate-700 rounded-lg text-slate-200 focus:outline-none focus:border-[#D4AF37] text-sm mb-4">
+            <input id="apiKeyValue" type="password" placeholder="AIzaSy..." class="w-full px-4 py-3 bg-[#0B081F] border border-slate-700 rounded-lg text-slate-200 focus:outline-none focus:border-[#E5C158] text-sm mb-4">
             <div class="flex gap-2">
-                <button onclick="saveApiKey()" class="flex-1 py-2.5 bg-gradient-to-r from-[#AA7C11] to-[#D4AF37] text-[#090A15] font-bold rounded-lg transition hover:brightness-110 text-sm">저장</button>
+                <button onclick="saveApiKey()" class="flex-1 py-2.5 bg-gradient-to-r from-[#B58F28] to-[#E5C158] text-[#070812] font-bold rounded-lg transition hover:brightness-110 text-sm">저장</button>
                 <button onclick="clearApiKey()" class="px-4 py-2.5 bg-slate-800 text-slate-400 rounded-lg transition hover:text-white text-sm">초기화</button>
             </div>
         </div>
@@ -174,11 +174,11 @@
 
     <!-- HEADER / NAVIGATION -->
     <header class="relative z-10 max-w-4xl mx-auto px-4 pt-6 flex justify-between items-center">
-        <div class="flex items-center gap-2" onclick="goHome()" class="cursor-pointer">
-            <span class="text-[#D4AF37] text-2xl float-anim"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-            <span class="header-font text-xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F3E5AB] via-[#D4AF37] to-[#AA7C11] cursor-pointer">ASTRA TAROT</span>
+        <div class="flex items-center gap-2 cursor-pointer" onclick="goHome()">
+            <span class="text-[#E5C158] text-2xl float-anim"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            <span class="header-font text-xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#F9EFAF] via-[#E5C158] to-[#B58F28]">ASTRA TAROT</span>
         </div>
-        <button onclick="toggleApiKeyModal(true)" class="px-3 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#211947]/50 text-xs text-[#F3E5AB] flex items-center gap-1.5 hover:bg-[#211947] transition">
+        <button onclick="toggleApiKeyModal(true)" class="px-3 py-1.5 rounded-full border border-[#E5C158]/30 bg-[#1b1440]/50 text-xs text-[#F9EFAF] flex items-center gap-1.5 hover:bg-[#1b1440] transition">
             <i class="fa-solid fa-key"></i> API설정
         </button>
     </header>
@@ -189,30 +189,30 @@
         <section id="stepSelection" class="block">
             <div class="text-center mb-8">
                 <h1 class="serif-font text-2xl md:text-3xl font-semibold text-white tracking-wide leading-snug">
-                    당신의 영혼이 건네는<br><span class="text-[#F3E5AB]">오늘의 운명적 조언</span>
+                    당신의 영혼이 건네는<br><span class="text-[#F9EFAF]">오늘의 운명적 조언</span>
                 </h1>
                 <p class="text-xs md:text-sm text-slate-400 mt-2">풀리지 않는 고민, 당신의 의식 속 우주를 거쳐 흘러나올 카드를 골라보세요.</p>
             </div>
 
             <!-- 고민 대주제 테마 -->
             <div class="mb-6">
-                <h3 class="serif-font text-base text-[#F3E5AB] mb-3 flex items-center gap-2 justify-center">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> 고민의 대표적인 영역 선택
+                <h3 class="serif-font text-base text-[#F9EFAF] mb-3 flex items-center gap-2 justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#E5C158]"></span> 고민의 대표적인 영역 선택
                 </h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    <button onclick="selectTheme('love')" id="btn-theme-love" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#211947] flex flex-col items-center justify-center gap-2 transition duration-300">
+                    <button onclick="selectTheme('love')" id="btn-theme-love" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#1b1440] flex flex-col items-center justify-center gap-2 transition duration-300">
                         <i class="fa-solid fa-heart text-2xl text-rose-400"></i>
                         <span class="font-semibold text-sm">연애운</span>
                     </button>
-                    <button onclick="selectTheme('wealth')" id="btn-theme-wealth" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#211947] flex flex-col items-center justify-center gap-2 transition duration-300">
+                    <button onclick="selectTheme('wealth')" id="btn-theme-wealth" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#1b1440] flex flex-col items-center justify-center gap-2 transition duration-300">
                         <i class="fa-solid fa-coins text-2xl text-amber-400"></i>
                         <span class="font-semibold text-sm">재물운</span>
                     </button>
-                    <button onclick="selectTheme('career')" id="btn-theme-career" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#211947] flex flex-col items-center justify-center gap-2 transition duration-300">
+                    <button onclick="selectTheme('career')" id="btn-theme-career" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#1b1440] flex flex-col items-center justify-center gap-2 transition duration-300">
                         <i class="fa-solid fa-briefcase text-2xl text-sky-400"></i>
                         <span class="font-semibold text-sm">직업/커리어</span>
                     </button>
-                    <button onclick="selectTheme('relations')" id="btn-theme-relations" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#211947] flex flex-col items-center justify-center gap-2 transition duration-300">
+                    <button onclick="selectTheme('relations')" id="btn-theme-relations" class="theme-btn py-4 rounded-xl border border-slate-800 bg-[#161233]/70 hover:bg-[#1b1440] flex flex-col items-center justify-center gap-2 transition duration-300">
                         <i class="fa-solid fa-hands-holding-child text-2xl text-emerald-400"></i>
                         <span class="font-semibold text-sm">인간관계</span>
                     </button>
@@ -221,11 +221,10 @@
 
             <!-- 세부 고민 카테고리 (테마 선택 후 동적 활성화) -->
             <div id="subCategoryArea" class="mb-6 opacity-40 pointer-events-none transition-all duration-500">
-                <h3 class="serif-font text-base text-[#F3E5AB] mb-3 flex items-center gap-2 justify-center">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> 당신이 직면한 구체적 상황
+                <h3 class="serif-font text-base text-[#F9EFAF] mb-3 flex items-center gap-2 justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#E5C158]"></span> 당신이 직면한 구체적 상황
                 </h3>
                 <div id="subCategoryContainer" class="grid grid-cols-2 gap-2.5">
-                    <!-- Javascript가 채워줄 공간 -->
                     <div class="col-span-2 text-center text-xs text-slate-500 py-4 border border-dashed border-slate-800 rounded-lg">위 대주제를 먼저 탭해 주세요.</div>
                 </div>
             </div>
@@ -233,16 +232,16 @@
             <!-- 구체적인 고민 입력창 -->
             <div class="mb-8">
                 <div class="flex justify-between items-center mb-2">
-                    <h3 class="serif-font text-base text-[#F3E5AB] flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> 더 명확한 조언을 위한 디테일 (선택)
+                    <h3 class="serif-font text-base text-[#F9EFAF] flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#E5C158]"></span> 더 명확한 조언을 위한 디테일 (선택)
                     </h3>
                     <span class="text-xs text-slate-500">상세할수록 더욱 정확해집니다.</span>
                 </div>
-                <textarea id="userCustomDetail" rows="3" placeholder="예: '3년간 다닌 회사를 그만두고 이직 준비 중인데 맞는지 모르겠습니다.' 혹은 '새로 시작한 썸 관계에서 상대의 적극적인 모습이 진심인지 두렵네요...'" class="w-full p-4 bg-[#110D27]/80 border border-slate-800 focus:border-[#D4AF37]/70 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#D4AF37]/50 transition"></textarea>
+                <textarea id="userCustomDetail" rows="3" placeholder="예: '3년간 다닌 회사를 그만두고 이직 준비 중인데 맞는지 모르겠습니다.' 혹은 '새로 시작한 썸 관계에서 상대의 적극적인 모습이 진심인지 두렵네요...'" class="w-full p-4 bg-[#110D27]/80 border border-slate-800 focus:border-[#E5C158]/70 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#E5C158]/50 transition"></textarea>
             </div>
 
             <div class="text-center">
-                <button onclick="proceedToDraw()" class="w-full md:w-80 py-4 bg-gradient-to-r from-[#AA7C11] via-[#D4AF37] to-[#AA7C11] text-black font-extrabold text-base rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition duration-300 transform active:scale-98">
+                <button onclick="proceedToDraw()" class="w-full md:w-80 py-4 bg-gradient-to-r from-[#B58F28] via-[#E5C158] to-[#B58F28] text-black font-extrabold text-base rounded-xl hover:shadow-[0_0_20px_rgba(229,193,88,0.4)] transition duration-300 transform active:scale-98">
                     타로 카드 셔플 시작하기 <i class="fa-solid fa-arrow-right ml-2"></i>
                 </button>
             </div>
@@ -251,24 +250,24 @@
         <!-- SCREEN 2: CARD SHUFFLE & SELECT -->
         <section id="stepDraw" class="hidden">
             <div class="text-center mb-4">
-                <div class="text-xs text-[#D4AF37] tracking-widest uppercase font-semibold mb-1" id="selectedContextLabel">연애운 &gt; 연애중</div>
+                <div class="text-xs text-[#E5C158] tracking-widest uppercase font-semibold mb-1" id="selectedContextLabel">연애운 &gt; 연애중</div>
                 <h2 class="serif-font text-xl md:text-2xl text-white font-bold mb-2">당신을 부르는 세 장의 카드</h2>
                 <p class="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">마음을 평온히 하고 당신의 과거, 현재, 미래를 투영해 줄 카드를 신중히 순서대로 한 장씩 터치해 골라보세요.</p>
             </div>
 
             <!-- 타로 레이아웃 상태판 -->
-            <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto mb-6 bg-[#161233]/40 p-3.5 border border-[#D4AF37]/20 rounded-xl">
-                <div id="slot-1" class="border border-dashed border-[#D4AF37]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#0B0A15]/60 min-h-[90px] transition-all">
+            <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto mb-6 bg-[#161233]/40 p-3.5 border border-[#E5C158]/20 rounded-xl">
+                <div id="slot-1" class="border border-dashed border-[#E5C158]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#070812]/60 min-h-[90px] transition-all">
                     <span class="text-[10px] text-slate-500 tracking-wider">첫 번째 카드</span>
                     <span class="text-xs text-white font-bold mt-1 serif-font">과거 / 상황</span>
                     <div class="slot-indicator mt-1.5 w-5 h-5 rounded-full border border-dashed border-slate-600 flex items-center justify-center text-[10px] text-slate-500">1</div>
                 </div>
-                <div id="slot-2" class="border border-dashed border-[#D4AF37]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#0B0A15]/60 min-h-[90px] transition-all">
+                <div id="slot-2" class="border border-dashed border-[#E5C158]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#070812]/60 min-h-[90px] transition-all">
                     <span class="text-[10px] text-slate-500 tracking-wider">두 번째 카드</span>
                     <span class="text-xs text-white font-bold mt-1 serif-font">현재 / 장애물</span>
                     <div class="slot-indicator mt-1.5 w-5 h-5 rounded-full border border-dashed border-slate-600 flex items-center justify-center text-[10px] text-slate-500">2</div>
                 </div>
-                <div id="slot-3" class="border border-dashed border-[#D4AF37]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#0B0A15]/60 min-h-[90px] transition-all">
+                <div id="slot-3" class="border border-dashed border-[#E5C158]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#070812]/60 min-h-[90px] transition-all">
                     <span class="text-[10px] text-slate-500 tracking-wider">세 번째 카드</span>
                     <span class="text-xs text-white font-bold mt-1 serif-font">미래 / 조언</span>
                     <div class="slot-indicator mt-1.5 w-5 h-5 rounded-full border border-dashed border-slate-600 flex items-center justify-center text-[10px] text-slate-500">3</div>
@@ -278,15 +277,15 @@
             <!-- 셔플 보드 (실제 스프레드된 카드들) -->
             <div class="relative w-full overflow-hidden mb-6 py-6" style="height: 280px;">
                 <div id="deckContainer" class="absolute inset-0 flex items-center justify-center">
-                    <!-- Javascript가 22장 카드를 이쁘게 부채꼴 스프레드해 줄 예정 -->
+                    <!-- Javascript가 22장 카드를 부채꼴 스프레드 -->
                 </div>
             </div>
 
             <div class="flex flex-col items-center justify-center gap-3">
-                <button onclick="shuffleDeckAnimation()" class="px-5 py-2.5 bg-[#211947] border border-[#D4AF37]/40 text-[#F3E5AB] font-bold text-xs rounded-full hover:bg-[#322869] transition">
+                <button onclick="shuffleDeckAnimation()" class="px-5 py-2.5 bg-[#1b1440] border border-[#E5C158]/40 text-[#F9EFAF] font-bold text-xs rounded-full hover:bg-[#251b5c] transition">
                     <i class="fa-solid fa-rotate-right mr-1.5"></i> 카드를 다시 뒤섞기
                 </button>
-                <button id="btnRequestReading" disabled onclick="requestAIReading()" class="w-full max-w-xs py-3.5 bg-gradient-to-r from-amber-500 via-[#D4AF37] to-amber-500 text-black font-extrabold text-sm rounded-lg opacity-40 cursor-not-allowed transition duration-300">
+                <button id="btnRequestReading" disabled onclick="requestAIReading()" class="w-full max-w-xs py-3.5 bg-gradient-to-r from-amber-500 via-[#E5C158] to-amber-500 text-black font-extrabold text-sm rounded-lg opacity-40 cursor-not-allowed transition duration-300">
                     운명의 해석 펼쳐보기 <i class="fa-solid fa-sparkles ml-1.5"></i>
                 </button>
             </div>
@@ -297,30 +296,30 @@
             <div class="flex flex-col items-center justify-center min-h-[400px] text-center">
                 <!-- 신비로운 우주 로딩 심볼 -->
                 <div class="relative w-28 h-28 mb-8">
-                    <div class="absolute inset-0 rounded-full border-4 border-dashed border-[#D4AF37]/20 animate-spin" style="animation-duration: 15s;"></div>
-                    <div class="absolute inset-2 rounded-full border-2 border-dashed border-[#D4AF37]/50 animate-spin" style="animation-duration: 8s; animation-direction: reverse;"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-dashed border-[#E5C158]/20 animate-spin" style="animation-duration: 15s;"></div>
+                    <div class="absolute inset-2 rounded-full border-2 border-dashed border-[#E5C158]/50 animate-spin" style="animation-duration: 8s; animation-direction: reverse;"></div>
                     <div class="absolute inset-6 rounded-full bg-gradient-to-tr from-[#1C163D] to-[#2B225E] flex items-center justify-center shadow-lg">
-                        <i class="fa-solid fa-eye-evil text-[#D4AF37] text-3xl pulse-anim"><i class="fa-solid fa-brain"></i></i>
+                        <i class="fa-solid fa-brain text-[#E5C158] text-3xl pulse-anim"></i>
                     </div>
                     <!-- 주변을 도는 작은 빛구체 -->
-                    <div class="absolute top-1/2 left-1/2 -ml-1.5 -mt-1.5 w-3 h-3 bg-[#F3E5AB] rounded-full animate-ping" style="animation-duration: 1.5s;"></div>
+                    <div class="absolute top-1/2 left-1/2 -ml-1.5 -mt-1.5 w-3 h-3 bg-[#F9EFAF] rounded-full animate-ping" style="animation-duration: 1.5s;"></div>
                 </div>
                 
-                <h3 class="serif-font text-xl text-white font-semibold mb-2">아스트라가 당신의 마음을 스캔하는 중</h3>
-                <p id="loadingQuote" class="text-xs text-[#D4AF37]/80 h-10 max-w-sm px-4 italic leading-relaxed">"우주의 먼지 한 톨에도 과거와 미래가 숨겨져 있습니다."</p>
+                <h3 class="serif-font text-xl text-white font-semibold mb-2">아스트라가 당신의 운명을 연결하는 중</h3>
+                <p id="loadingQuote" class="text-xs text-[#E5C158]/80 h-10 max-w-sm px-4 italic leading-relaxed">"우주의 먼지 한 톨에도 과거와 미래가 숨겨져 있습니다."</p>
                 <div class="w-48 h-1 bg-slate-900 rounded-full overflow-hidden mt-4">
-                    <div class="h-full bg-gradient-to-r from-[#AA7C11] to-[#D4AF37] rounded-full animate-pulse" style="width: 75%; animation-duration: 1.5s;"></div>
+                    <div class="h-full bg-gradient-to-r from-[#B58F28] to-[#E5C158] rounded-full animate-pulse" style="width: 75%; animation-duration: 1.5s;"></div>
                 </div>
             </div>
         </section>
 
         <section id="stepResult" class="hidden">
-            <div class="text-center mb-8 border-b border-[#D4AF37]/20 pb-6">
-                <div class="text-xs text-[#D4AF37] tracking-widest uppercase mb-1" id="resultLabelTheme">재물운 &gt; 주식투자</div>
+            <!-- RATING / HEADER -->
+            <div class="text-center mb-8 border-b border-[#E5C158]/20 pb-6">
+                <div class="text-xs text-[#E5C158] tracking-widest uppercase mb-1" id="resultLabelTheme">재물운 &gt; 주식투자</div>
                 <h2 class="serif-font text-2xl text-white font-extrabold mb-3">하늘이 안내하는 길사</h2>
-                <div id="resultOverallSummary" class="serif-font italic text-[#F3E5AB] text-sm md:text-base px-6 py-4 bg-[#161233]/60 rounded-xl border border-[#D4AF37]/30 max-w-2xl mx-auto leading-relaxed">
+                <div id="resultOverallSummary" class="serif-font italic text-[#F9EFAF] text-sm md:text-base px-6 py-4 bg-[#161233]/60 rounded-xl border border-[#E5C158]/30 max-w-2xl mx-auto leading-relaxed">
                     <!-- AI 요약문 자리 -->
-                    "과거의 주저함을 극복하고 현재 눈앞의 도전을 지혜롭게 수용할 때, 장기적인 성공이 당신의 편이 될 것입니다."
                 </div>
             </div>
 
@@ -328,128 +327,122 @@
             <div class="grid grid-cols-3 gap-3 md:gap-6 max-w-lg mx-auto mb-10">
                 <div class="flex flex-col items-center">
                     <div class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">과거</div>
-                    <div id="resCardPic1" class="w-full aspect-[2/3.2] max-w-[120px] bg-[#211947] border-2 border-[#D4AF37] rounded-lg overflow-hidden relative shadow-lg">
-                        <!-- 이미지 혹은 SVG 카드 전면 렌더링 -->
-                    </div>
-                    <div id="resCardName1" class="text-xs font-bold text-[#F3E5AB] mt-1.5 serif-font">0. 바보 (정방향)</div>
+                    <div id="resCardPic1" class="w-full aspect-[2/3.2] max-w-[120px] bg-[#1b1440] border-2 border-[#E5C158] rounded-lg overflow-hidden relative shadow-lg"></div>
+                    <div id="resCardName1" class="text-xs font-bold text-[#F9EFAF] mt-1.5 serif-font text-center"></div>
                 </div>
                 <div class="flex flex-col items-center">
                     <div class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">현재</div>
-                    <div id="resCardPic2" class="w-full aspect-[2/3.2] max-w-[120px] bg-[#211947] border-2 border-[#D4AF37] rounded-lg overflow-hidden relative shadow-lg">
-                        <!-- 이미지 혹은 SVG 카드 전면 렌더링 -->
-                    </div>
-                    <div id="resCardName2" class="text-xs font-bold text-[#F3E5AB] mt-1.5 serif-font">1. 마법사 (역방향)</div>
+                    <div id="resCardPic2" class="w-full aspect-[2/3.2] max-w-[120px] bg-[#1b1440] border-2 border-[#E5C158] rounded-lg overflow-hidden relative shadow-lg"></div>
+                    <div id="resCardName2" class="text-xs font-bold text-[#F9EFAF] mt-1.5 serif-font text-center"></div>
                 </div>
                 <div class="flex flex-col items-center">
                     <div class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">미래</div>
-                    <div id="resCardPic3" class="w-full aspect-[2/3.2] max-w-[120px] bg-[#211947] border-2 border-[#D4AF37] rounded-lg overflow-hidden relative shadow-lg">
-                        <!-- 이미지 혹은 SVG 카드 전면 렌더링 -->
-                    </div>
-                    <div id="resCardName3" class="text-xs font-bold text-[#F3E5AB] mt-1.5 serif-font">10. 운명의수레바퀴 (정방향)</div>
+                    <div id="resCardPic3" class="w-full aspect-[2/3.2] max-w-[120px] bg-[#1b1440] border-2 border-[#E5C158] rounded-lg overflow-hidden relative shadow-lg"></div>
+                    <div id="resCardName3" class="text-xs font-bold text-[#F9EFAF] mt-1.5 serif-font text-center"></div>
                 </div>
             </div>
 
             <!-- 상세 해설 타일 -->
             <div class="space-y-6">
                 <!-- 1. 과거 카드 해설 -->
-                <div class="bg-[#161233]/70 border border-[#D4AF37]/25 rounded-2xl p-5 md:p-6 shadow-xl">
-                    <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-[#D4AF37]/10">
-                        <span class="w-6 h-6 rounded-full bg-slate-800 text-[#D4AF37] flex items-center justify-center text-xs font-bold font-mono">1</span>
-                        <h3 class="serif-font font-bold text-lg text-[#F3E5AB]">과거의 흐름 / 현재까지 도달한 상황</h3>
+                <div class="bg-[#161233]/70 border border-[#E5C158]/25 rounded-2xl p-5 md:p-6 shadow-xl">
+                    <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-[#E5C158]/10">
+                        <span class="w-6 h-6 rounded-full bg-slate-800 text-[#E5C158] flex items-center justify-center text-xs font-bold font-mono">1</span>
+                        <h3 class="serif-font font-bold text-lg text-[#F9EFAF]">과거의 흐름 / 기저에 깔린 운명의 축</h3>
                     </div>
                     <div class="space-y-3.5 text-sm leading-relaxed text-slate-300">
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">카드의 기운과 원천적 의미</span>
-                            <p id="resDesc1-energy" class="mt-1 font-light">카드가 담고 있는 보편적이고 근원적인 에너지에 대한 기술</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">카드의 기운과 아키타입(원형)</span>
+                            <p id="resDesc1-energy" class="mt-1 font-light"></p>
                         </div>
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">당신의 세부 사연에 어떻게 투영되는가?</span>
-                            <p id="resDesc1-app" class="mt-1 text-white font-light">당신이 고민하는 연애/금전/커리어 상황과 연결된 구체적 해설</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">당신의 세부 사연에 어떻게 투영되는가?</span>
+                            <p id="resDesc1-app" class="mt-1 text-white font-light"></p>
                         </div>
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">의식 아래 숨어 있는 무의식과 마음의 기로</span>
-                            <p id="resDesc1-sub" class="mt-1 font-light">겉으로는 알아차리지 못했던 나의 심리적 상태나 과거의 요인</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">무의식 아래 깊은 심리와 회피해왔던 지점</span>
+                            <p id="resDesc1-sub" class="mt-1 font-light"></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 2. 현재 카드 해설 -->
-                <div class="bg-[#161233]/70 border border-[#D4AF37]/25 rounded-2xl p-5 md:p-6 shadow-xl">
-                    <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-[#D4AF37]/10">
-                        <span class="w-6 h-6 rounded-full bg-slate-800 text-[#D4AF37] flex items-center justify-center text-xs font-bold font-mono">2</span>
-                        <h3 class="serif-font font-bold text-lg text-[#F3E5AB]">현재의 장애물 / 맞닥뜨린 국면</h3>
+                <div class="bg-[#161233]/70 border border-[#E5C158]/25 rounded-2xl p-5 md:p-6 shadow-xl">
+                    <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-[#E5C158]/10">
+                        <span class="w-6 h-6 rounded-full bg-slate-800 text-[#E5C158] flex items-center justify-center text-xs font-bold font-mono">2</span>
+                        <h3 class="serif-font font-bold text-lg text-[#F9EFAF]">현재의 장애물 / 극복해야 할 갈등</h3>
                     </div>
                     <div class="space-y-3.5 text-sm leading-relaxed text-slate-300">
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">카드의 기운과 원천적 의미</span>
-                            <p id="resDesc2-energy" class="mt-1 font-light">카드가 담고 있는 보편적이고 근원적인 에너지에 대한 기술</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">카드의 기운과 현실적 에너지</span>
+                            <p id="resDesc2-energy" class="mt-1 font-light"></p>
                         </div>
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">당신의 세부 사연에 어떻게 투영되는가?</span>
-                            <p id="resDesc2-app" class="mt-1 text-white font-light">당신이 고민하는 연애/금전/커리어 상황과 연결된 구체적 해설</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">당신의 사연에서 목격되는 실제 장애</span>
+                            <p id="resDesc2-app" class="mt-1 text-white font-light"></p>
                         </div>
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">카드들의 교차와 숨겨진 이면의 지점</span>
-                            <p id="resDesc2-combo" class="mt-1 font-light">다른 카드들의 배치와 연결되어 나에게 다가오는 현재의 기조</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">과거의 에너지와 충돌하며 빚어지는 흐름</span>
+                            <p id="resDesc2-combo" class="mt-1 font-light"></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 3. 미래 카드 해설 -->
-                <div class="bg-[#161233]/70 border border-[#D4AF37]/25 rounded-2xl p-5 md:p-6 shadow-xl">
-                    <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-[#D4AF37]/10">
-                        <span class="w-6 h-6 rounded-full bg-slate-800 text-[#D4AF37] flex items-center justify-center text-xs font-bold font-mono">3</span>
-                        <h3 class="serif-font font-bold text-lg text-[#F3E5AB]">미래의 가능성 / 핵심 조언</h3>
+                <div class="bg-[#161233]/70 border border-[#E5C158]/25 rounded-2xl p-5 md:p-6 shadow-xl">
+                    <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-[#E5C158]/10">
+                        <span class="w-6 h-6 rounded-full bg-slate-800 text-[#E5C158] flex items-center justify-center text-xs font-bold font-mono">3</span>
+                        <h3 class="serif-font font-bold text-lg text-[#F9EFAF]">미래의 가능성 / 해결의 조언</h3>
                     </div>
                     <div class="space-y-3.5 text-sm leading-relaxed text-slate-300">
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">카드의 기운과 원천적 의미</span>
-                            <p id="resDesc3-energy" class="mt-1 font-light">카드가 담고 있는 보편적이고 근원적인 에너지에 대한 기술</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">카드가 가리키는 궁극적 운명선</span>
+                            <p id="resDesc3-energy" class="mt-1 font-light"></p>
                         </div>
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">당신의 세부 사연에 어떻게 투영되는가?</span>
-                            <p id="resDesc3-app" class="mt-1 text-white font-light">당신이 고민하는 연애/금전/커리어 상황과 연결된 구체적 해설</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">앞으로 전개될 미래의 구체적 조언</span>
+                            <p id="resDesc3-app" class="mt-1 text-white font-light"></p>
                         </div>
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">앞으로 경계해야 할 태도와 조심해야 할 부분</span>
-                            <p id="resDesc3-caution" class="mt-1 font-light">실수나 리스크를 피하기 위해 마음에 새겨두어야 할 것들</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">스스로 경계해야 할 내적 경고와 태도</span>
+                            <p id="resDesc3-caution" class="mt-1 font-light"></p>
                         </div>
                         <div>
-                            <span class="text-xs text-[#D4AF37] block font-semibold">하늘이 보내준 행운의 요인 (귀인 및 기회)</span>
-                            <p id="resDesc3-lucky" class="mt-1 font-light">나에게 도움을 줄 사람(귀인)의 양태나 우연한 전환의 단초</p>
+                            <span class="text-xs text-[#E5C158] block font-semibold">우연의 귀인과 운명적 타이밍</span>
+                            <p id="resDesc3-lucky" class="mt-1 font-light"></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 종합적 총평 및 액션 조언 -->
-                <div class="bg-gradient-to-r from-[#211947] to-[#1C163D] border border-amber-500/40 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
-                    <div class="absolute -right-16 -top-16 text-slate-800/20 text-9xl pointer-events-none"><i class="fa-solid fa-moon"></i></div>
-                    <h3 class="serif-font font-bold text-xl text-[#F3E5AB] mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-star-of-david text-[#D4AF37]"></i> 종합적 조언 및 아스트라의 특별 처방
+                <div class="bg-gradient-to-r from-[#1b1440] to-[#0A071A] border border-amber-500/40 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-16 -top-16 text-slate-800/10 text-9xl pointer-events-none"><i class="fa-solid fa-moon"></i></div>
+                    <h3 class="serif-font font-bold text-xl text-[#F9EFAF] mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-star-of-david text-[#E5C158]"></i> 아스트라의 최종 솔루션 및 극비 특별 처방
                     </h3>
-                    <div class="space-y-4 text-sm leading-relaxed text-slate-200">
-                        <p id="resDesc-synthesis" class="font-light">인생의 키포인트를 어떻게 짚고 나아가야 하는지에 대한 아스트라의 최종 처방 설명 영역.</p>
+                    <div id="resDesc-synthesis" class="space-y-4 text-sm leading-relaxed text-slate-200 font-light">
+                        <!-- 처방전 디테일이 HTML로 렌더링됩니다 -->
                     </div>
                 </div>
             </div>
 
             <!-- 추가/심화 질문 점사 섹션 (사용자의 고민을 한 단계 깊게 확장) -->
-            <div class="mt-10 bg-[#0B091B] border border-[#D4AF37]/35 rounded-2xl p-6 text-center">
-                <span class="px-3 py-1 bg-[#D4AF37]/20 border border-[#D4AF37]/50 rounded-full text-[10px] text-[#F3E5AB] uppercase tracking-widest font-bold">심화 운세 기능</span>
+            <div class="mt-10 bg-[#070812] border border-[#E5C158]/35 rounded-2xl p-6 text-center">
+                <span class="px-3 py-1 bg-[#E5C158]/20 border border-[#E5C158]/50 rounded-full text-[10px] text-[#F9EFAF] uppercase tracking-widest font-bold">연계 심화 운세</span>
                 <h3 class="serif-font text-lg text-white font-bold mt-2.5 mb-1.5">이 사안에 대해 한 걸음 더 들어가기</h3>
                 <p class="text-xs text-slate-400 max-w-sm mx-auto mb-5 leading-relaxed">
-                    조언에서 한 발짝 나아가, 좀 더 입체적이고 세밀한 추가 고민에 대해 1장의 열쇠 카드를 더 뽑아보실 수 있습니다.
+                    본 점사를 기반으로 질문이 깊어졌습니다. 앞으로 도래할 운명의 실마리를 풀기 위해, 1장의 추가 솔루션 열쇠 카드를 더 받아보세요.
                 </p>
 
                 <!-- 심화 세부 고민 선택 옵션 -->
                 <div id="deepenSelectionArea" class="max-w-md mx-auto mb-6 text-left">
-                    <label class="block text-xs text-[#D4AF37] font-semibold mb-2 text-center">더 탐구하고 싶은 세부 사안을 선택해 주세요</label>
+                    <label class="block text-xs text-[#E5C158] font-semibold mb-2 text-center">더 심도 있게 추적할 우주적 의문을 정해 주세요</label>
                     <div id="deepenOptionsContainer" class="space-y-2">
-                        <!-- Javascript가 동적으로 해당 카테고리에 맞는 세부 고민 3가지를 생성함 -->
+                        <!-- 동적 추가 질문 바인딩 -->
                     </div>
                 </div>
 
-                <button onclick="startDeepenTarot()" id="btnStartDeepen" class="px-8 py-3 bg-gradient-to-r from-[#AA7C11] to-[#D4AF37] text-black font-extrabold rounded-xl hover:shadow-lg transition">
+                <button onclick="startDeepenTarot()" id="btnStartDeepen" class="px-8 py-3 bg-gradient-to-r from-[#B58F28] to-[#E5C158] text-black font-extrabold rounded-xl hover:shadow-lg transition">
                     깊이 있는 비밀 조언 카드 뽑기 <i class="fa-solid fa-arrow-down ml-1.5"></i>
                 </button>
             </div>
@@ -458,7 +451,7 @@
                 <button onclick="shareResults()" class="flex-1 max-w-xs py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
                     <i class="fa-solid fa-copy"></i> 해설 결과 텍스트로 복사하기
                 </button>
-                <button onclick="goHome()" class="flex-1 max-w-xs py-3.5 bg-[#211947] hover:bg-[#322869] border border-[#D4AF37]/30 text-[#F3E5AB] text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
+                <button onclick="goHome()" class="flex-1 max-w-xs py-3.5 bg-[#1b1440] hover:bg-[#251b5c] border border-[#E5C158]/30 text-[#F9EFAF] text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
                     <i class="fa-solid fa-home"></i> 처음 화면으로 돌아가기
                 </button>
             </div>
@@ -467,7 +460,7 @@
         <!-- SCREEN 4: DEEPEN TAROT (1 CARD DRAW) -->
         <section id="stepDeepenDraw" class="hidden">
             <div class="text-center mb-6">
-                <span class="px-2.5 py-1 bg-[#AA7C11]/20 border border-[#AA7C11]/50 rounded-full text-[9px] text-[#F3E5AB] uppercase tracking-widest font-bold">심층 솔루션 점사</span>
+                <span class="px-2.5 py-1 bg-[#B58F28]/20 border border-[#B58F28]/50 rounded-full text-[9px] text-[#F9EFAF] uppercase tracking-widest font-bold">심층 솔루션 점사</span>
                 <h2 class="serif-font text-xl md:text-2xl text-white font-bold mt-2" id="deepenTitleLabel">이 사안에서 가장 지혜로운 판단은?</h2>
                 <p class="text-xs text-slate-400 mt-2 max-w-sm mx-auto">더 깊어진 무의식의 핵심을 짚어내 줄 조언 카드를 선택하십시오.</p>
             </div>
@@ -490,37 +483,37 @@
         <!-- SCREEN 5: DEEPEN TAROT RESULT -->
         <section id="stepDeepenResult" class="hidden">
             <div class="text-center mb-6">
-                <span class="px-3 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-[10px] text-[#F3E5AB] uppercase tracking-widest font-bold">심층 분석 결과</span>
+                <span class="px-3 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-[10px] text-[#F9EFAF] uppercase tracking-widest font-bold">심층 분석 결과</span>
                 <h2 class="serif-font text-2xl text-white font-extrabold mt-3">신비가 던지는 궁극의 조언</h2>
                 <p class="text-xs text-slate-400 mt-1" id="deepenSummaryQuestion">선택한 질문: 내가 가져야 할 마음가짐</p>
             </div>
 
-            <div class="max-w-lg mx-auto mb-8 bg-[#161233]/70 border border-[#D4AF37]/30 rounded-2xl p-6 shadow-2xl">
+            <div class="max-w-lg mx-auto mb-8 bg-[#161233]/70 border border-[#E5C158]/30 rounded-2xl p-6 shadow-2xl">
                 <!-- 뽑힌 카드 정보 -->
                 <div class="flex flex-col items-center mb-5">
-                    <div id="deepenResCardPic" class="w-28 aspect-[2/3.2] bg-[#211947] border-2 border-[#D4AF37] rounded-lg overflow-hidden relative shadow-lg"></div>
-                    <h4 id="deepenResCardName" class="serif-font text-sm font-bold text-[#F3E5AB] mt-2.5">X. 운명의 수레바퀴 (정방향)</h4>
+                    <div id="deepenResCardPic" class="w-28 aspect-[2/3.2] bg-[#1b1440] border-2 border-[#E5C158] rounded-lg overflow-hidden relative shadow-lg"></div>
+                    <h4 id="deepenResCardName" class="serif-font text-sm font-bold text-[#F9EFAF] mt-2.5">X. 운명의 수레바퀴 (정방향)</h4>
                 </div>
 
                 <!-- 해설 내용 -->
                 <div class="space-y-4 text-sm leading-relaxed text-slate-300">
                     <div>
-                        <span class="text-xs text-[#D4AF37] font-semibold block mb-1">카드의 기운과 의식의 각인</span>
-                        <p id="deepenResCardCore" class="font-light text-slate-400">카드의 기본적인 신비 성향 기술 영역</p>
+                        <span class="text-xs text-[#E5C158] font-semibold block mb-1">추가된 의식의 각인</span>
+                        <p id="deepenResCardCore" class="font-light text-slate-400"></p>
                     </div>
                     <hr class="border-slate-800">
                     <div>
-                        <span class="text-xs text-[#D4AF37] font-semibold block mb-1">깊어진 질문에 대한 직접적인 솔루션</span>
-                        <p id="deepenResExplanation" class="text-white font-medium">선택된 고민 주제에 결합된 실질적 전개와 영양가 넘치는 조언</p>
+                        <span class="text-xs text-[#E5C158] font-semibold block mb-1">깊어진 사안에 대한 직접적 해방 수칙</span>
+                        <p id="deepenResExplanation" class="text-white font-medium"></p>
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-                <button onclick="backToResult()" class="flex-1 py-3 bg-[#211947] hover:bg-[#322869] border border-[#D4AF37]/30 text-[#F3E5AB] text-xs font-bold rounded-xl transition">
+                <button onclick="backToResult()" class="flex-1 py-3 bg-[#1b1440] hover:bg-[#251b5c] border border-[#E5C158]/30 text-[#F9EFAF] text-xs font-bold rounded-xl transition">
                     종합 결과지 다시 보기
                 </button>
-                <button onclick="goHome()" class="flex-1 py-3 bg-gradient-to-r from-[#AA7C11] to-[#D4AF37] text-black text-xs font-extrabold rounded-xl transition">
+                <button onclick="goHome()" class="flex-1 py-3 bg-gradient-to-r from-[#B58F28] to-[#E5C158] text-black text-xs font-extrabold rounded-xl transition">
                     새 점사 보러 가기 <i class="fa-solid fa-arrow-right ml-1"></i>
                 </button>
             </div>
@@ -536,33 +529,31 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- 22 MAJOR ARCANA DATA ---
         const MAJOR_ARCANA = [
-            { id: 0, name: "광대 (The Fool)", keyword: "새로운 시작, 모험, 무방비, 낙천성" },
-            { id: 1, name: "마법사 (The Magician)", keyword: "창조력, 잠재능력, 독창성, 의지력" },
-            { id: 2, name: "여사제 (The High Priestess)", keyword: "비밀, 직관력, 통찰력, 신비주의" },
-            { id: 3, name: "여황제 (The Empress)", keyword: "풍요, 다산, 모성애, 물질적 성공" },
-            { id: 4, name: "황제 (The Emperor)", keyword: "권위, 권력, 책임감, 질서와 수호" },
-            { id: 5, name: "교황 (The Hierophant)", keyword: "전통, 가르침, 귀인, 정신적 조력자" },
-            { id: 6, name: "연인 (The Lovers)", keyword: "선택, 결합, 조화, 깊은 유대관계" },
-            { id: 7, name: "전차 (The Chariot)", keyword: "승리, 의지, 돌파력, 목표지향성" },
-            { id: 8, name: "힘 (Strength)", keyword: "내면의 힘, 인내력, 자제심, 용기" },
-            { id: 9, name: "은둔자 (The Hermit)", keyword: "성찰, 고독, 내적 탐구, 은밀한 진실" },
-            { id: 10, name: "운명의 수레바퀴 (Wheel of Fortune)", keyword: "변환점, 운명의 변화, 예상외의 기회" },
-            { id: 11, name: "정의 (Justice)", keyword: "균형, 인과응보, 공정한 판결, 객관적 시선" },
-            { id: 12, name: "매달린 사람 (The Hanged Man)", keyword: "희생, 관점의 변화, 정체기, 새로운 통찰" },
-            { id: 13, name: "죽음 (Death)", keyword: "종결과 시작, 새로운 패러다임, 정화" },
-            { id: 14, name: "절제 (Temperance)", keyword: "조율, 타협, 정서적 안정, 절충" },
-            { id: 15, name: "악마 (The Devil)", keyword: "유혹, 속박, 물질주의, 해방되어야 함" },
-            { id: 16, name: "탑 (The Tower)", keyword: "급격한 붕괴, 깨달음, 예기치 못한 폭풍" },
-            { id: 17, name: "별 (The Star)", keyword: "희망, 영감, 치유, 긍정적인 전망" },
-            { id: 18, name: "달 (The Moon)", keyword: "불안감, 무의식, 착각, 비밀스러운 변화" },
-            { id: 19, name: "태양 (The Sun)", keyword: "성공, 기쁨, 명확성, 활기찬 기운" },
-            { id: 20, name: "심판 (Judgement)", keyword: "부활, 결과의 통보, 해방, 중대한 통각" },
-            { id: 21, name: "세계 (The World)", keyword: "완성, 통합, 성공적인 피날레, 확장" }
+            { id: 0, name: "광대 (The Fool)", keyword: "새로운 기회, 두려움 없는 탐험, 규정되지 않은 자유, 낙천주의" },
+            { id: 1, name: "마법사 (The Magician)", keyword: "주도적 창조력, 잠재능력의 개화, 의지적 주권, 도구의 활용" },
+            { id: 2, name: "여사제 (The High Priestess)", keyword: "내적 직관, 감춰진 비밀, 비언어적 지혜, 통찰력과 수동성" },
+            { id: 3, name: "여황제 (The Empress)", keyword: "창조적 풍요, 비옥한 결실, 수용과 포용, 물질적 안정" },
+            { id: 4, name: "황제 (The Emperor)", keyword: "질서의 확립, 통제력과 책임, 경계 구축, 가부장적 보호" },
+            { id: 5, name: "교황 (The Hierophant)", keyword: "전통적 신념, 정신적 연대, 귀인의 조력, 가치관의 일치" },
+            { id: 6, name: "연인 (The Lovers)", keyword: "중요한 선택, 내적 정렬, 아름다운 유대, 이성과 감성의 결합" },
+            { id: 7, name: "전차 (The Chariot)", keyword: "목표지향적 추진, 의지의 힘, 장애 돌파, 통제와 전진" },
+            { id: 8, name: "힘 (Strength)", keyword: "부드러운 통제, 자비와 용기, 내면적 통찰, 조화로운 길들이기" },
+            { id: 9, name: "은둔자 (The Hermit)", keyword: "내적 탐색, 현명한 고독, 등불 같은 진실, 잠시의 멈춤" },
+            { id: 10, name: "운명의 수레바퀴 (Wheel of Fortune)", keyword: "불가항력적인 전환, 운명의 흐름, 정해진 기회, 리듬의 변화" },
+            { id: 11, name: "정의 (Justice)", keyword: "공정한 저울질, 원인과 결과, 객관적 판단, 계약과 진실" },
+            { id: 12, name: "매달린 사람 (The Hanged Man)", keyword: "관점의 완전한 전환, 희생적 기다림, 자발적 정지, 고정관념 타파" },
+            { id: 13, name: "죽음 (Death)", keyword: "강제적 종결, 낡은 자아의 해체, 새로운 패러다임, 불가피한 쇄신" },
+            { id: 14, name: "절제 (Temperance)", keyword: "서로 다른 에너지의 융합, 조화와 타협, 점진적 조율, 정서적 평형" },
+            { id: 15, name: "악마 (The Devil)", keyword: "달콤한 유혹, 자기 제한적 집착, 무의식의 노예화, 숨겨진 억압" },
+            { id: 16, name: "탑 (The Tower)", keyword: "갑작스러운 각성, 낡은 신념의 파괴, 예상치 못한 전환, 극적 해방" },
+            { id: 17, name: "별 (The Star)", keyword: "깊은 영혼의 치유, 영감과 희망, 정화 작용, 긍정적인 도약" },
+            { id: 18, name: "달 (The Moon)", keyword: "불투명한 베일, 환상과 미혹, 무의식적 불안, 예민한 영감" },
+            { id: 19, name: "태양 (The Sun)", keyword: "명확성, 순수성의 활력, 전폭적인 성공, 긍정의 힘" },
+            { id: 20, name: "심판 (Judgement)", keyword: "진실의 목소리, 부활과 자각, 과거 정리, 무죄 선고" },
+            { id: 21, name: "세계 (The World)", keyword: "조화로운 마무리, 최종 완결, 긍정적인 통합, 무한의 확장" }
         ];
 
-        // --- SUB CATEGORIES FOR MAIN THEMES ---
         const SUB_CATEGORIES = {
             love: [
                 { id: "love-solo", label: "솔로의 새로운 사랑 기회" },
@@ -590,31 +581,29 @@
             ]
         };
 
-        // --- DEEPEN QUESTION POOL ---
         const DEEPEN_QUESTIONS = {
             love: [
-                "이 관계를 촉발하기 위해 내가 취해야 할 구체적인 행동은 무엇일까요?",
-                "상대방이 무의식적으로 숨기고 있는 깊은 심리와 경계 지점은 어디일까요?",
-                "이 고민을 통해 영혼이 나에게 도달하길 바라는 진짜 사랑의 배움은 무엇일까요?"
+                "이 관계를 영적으로 조화롭게 이끌기 위해 오늘 내가 버려야 할 소유욕은 무엇인가요?",
+                "상대방이 마음 깊은 곳에서 두려워하여 꼭꼭 감춘 무의식적 경계는 어디에 있나요?",
+                "이 고민을 통해 우주가 내 영혼에 가르치고자 하는 진정한 사랑의 성찰은 무엇일까요?"
             ],
             wealth: [
-                "내가 금전적 행운을 끌어당기기 위해 가장 먼저 버려야 할 습관은 무엇일까요?",
-                "나에게 다가올 금전적 기회 속에서 경계해야 할 뜻밖의 구멍은 어디일까요?",
-                "재물운을 극대화시켜 줄 뜻밖의 귀인은 어떤 모습으로 다가올까요?"
+                "나의 물질적 무의식에서 흐름을 방해하는 가장 깊은 결핍 결계는 무엇인가요?",
+                "가까운 미래에 금전적 돌파구를 맞이할 때 경계해야 할 가장 은밀한 투자의 악마는?",
+                "물질의 주권을 바로 세우고 번영을 자극할 나만의 에너지 조율법은 무엇인가요?"
             ],
             career: [
-                "이 시기에 나의 내면적 잠재력을 가장 극대화할 수 있는 핵심 역량은 무엇일까요?",
-                "더 큰 성공을 위해 내가 기꺼이 감수하거나 버려야 할 리스크는 무엇일까요?",
-                "나의 직장생활에서 전환점을 선사할 숨은 행운과 귀인은 어떻게 알아채야 할까요?"
+                "이 정체기를 뚫고 비상하기 위해 내 안에 아직 발굴되지 않은 비밀 재능은 무엇인가요?",
+                "성공의 문턱에 이르기 위해 제가 기꺼이 우주에 지불해야 할 안이함의 대가는 무엇일까요?",
+                "저의 운명을 완전히 뒤집어 줄 전환점적 귀인은 어떤 가면을 쓰고 다가오나요?"
             ],
             relations: [
-                "상대방이 나에게 말하지 못한 비밀스러운 섭섭함이나 바람은 무엇일까요?",
-                "갈등을 화해로 전환하기 위해 내가 내딛어야 할 첫걸음은 어떻게 시작할까요?",
-                "내 인생의 주도권을 지키며 현명하게 인맥을 필터링하는 최고의 방어 기제는 무엇일까요?"
+                "상대방이 전하지 못한, 무거운 침묵 뒤의 깊고 고독한 상처는 무엇일까요?",
+                "복잡하게 꼬인 인맥의 실타래를 끊어내고 가벼운 자아로 거듭날 차단 기제는?",
+                "상처를 지혜로 극복하고 인간관계의 온전한 정화를 끌어당길 영혼의 파동은?"
             ]
         };
 
-        // --- STREAMING_CHUNK: Setting state variables... ---
         // APPLICATION STATE
         const state = {
             theme: "",
@@ -622,19 +611,13 @@
             subCategoryLabel: "",
             customDetail: "",
             deck: [],
-            selectedCards: [], // { cardId, isReversed, positionName }
+            selectedCards: [],
             resultData: null,
             deepenQuestion: "",
             deepenCard: null,
             deepenResult: ""
         };
 
-        // --- INITIALIZER ---
-        window.onload = function() {
-            initDeck();
-        };
-
-        // --- CUSTOM ALERT UTIL ---
         function showAlert(msg) {
             document.getElementById('alertMessage').innerText = msg;
             document.getElementById('customAlert').classList.remove('hidden');
@@ -644,7 +627,38 @@
             document.getElementById('customAlert').classList.add('hidden');
         }
 
-        // --- NAVIGATION FLOWS ---
+        function getSavedApiKey() {
+            return localStorage.getItem('astra_tarot_apikey') || "";
+        }
+
+        function toggleApiKeyModal(show) {
+            const modal = document.getElementById('apiKeyModal');
+            if (show) {
+                document.getElementById('apiKeyValue').value = getSavedApiKey();
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function saveApiKey() {
+            const key = document.getElementById('apiKeyValue').value.trim();
+            if (key) {
+                localStorage.setItem('astra_tarot_apikey', key);
+                showAlert("API 키가 안전하게 적용되었습니다.");
+                toggleApiKeyModal(false);
+            } else {
+                showAlert("유효한 API 키 값을 입력해 주세요.");
+            }
+        }
+
+        function clearApiKey() {
+            localStorage.removeItem('astra_tarot_apikey');
+            document.getElementById('apiKeyValue').value = "";
+            showAlert("API 키가 초기화되었습니다. 안전한 데모 채널로 작동합니다.");
+            toggleApiKeyModal(false);
+        }
+
         function goHome() {
             state.theme = "";
             state.subCategory = "";
@@ -655,9 +669,8 @@
             state.deepenQuestion = "";
             state.deepenCard = null;
 
-            // Reset UI States
             const themeBtns = document.querySelectorAll('.theme-btn');
-            themeBtns.forEach(btn => btn.className = btn.className.replace(' border-[#D4AF37]', ' border-slate-800'));
+            themeBtns.forEach(btn => btn.className = btn.className.replace(' border-[#E5C158]', ' border-slate-800'));
             
             document.getElementById('subCategoryArea').classList.add('opacity-40', 'pointer-events-none');
             document.getElementById('subCategoryContainer').innerHTML = `<div class="col-span-2 text-center text-xs text-slate-500 py-4 border border-dashed border-slate-800 rounded-lg">위 대주제를 먼저 탭해 주세요.</div>`;
@@ -683,21 +696,18 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- THEME SELECT & INTERACTION ---
         function selectTheme(themeKey) {
             state.theme = themeKey;
             
-            // Visual Active Feedback
             const themeBtns = document.querySelectorAll('.theme-btn');
             themeBtns.forEach(btn => {
                 if (btn.id === `btn-theme-${themeKey}`) {
-                    btn.classList.add('border-[#D4AF37]', 'bg-[#211947]/90');
+                    btn.classList.add('border-[#E5C158]', 'bg-[#1b1440]/90');
                 } else {
-                    btn.classList.remove('border-[#D4AF37]', 'bg-[#211947]/90');
+                    btn.classList.remove('border-[#E5C158]', 'bg-[#1b1440]/90');
                 }
             });
 
-            // Activate Sub-categories
             const area = document.getElementById('subCategoryArea');
             area.classList.remove('opacity-40', 'pointer-events-none');
 
@@ -707,7 +717,7 @@
             SUB_CATEGORIES[themeKey].forEach(sub => {
                 const btn = document.createElement('button');
                 btn.type = "button";
-                btn.className = "sub-btn text-xs py-3 px-4 border border-slate-800 bg-[#0B081F] rounded-lg text-slate-300 hover:text-white hover:border-[#D4AF37]/50 transition duration-200 text-left flex items-center gap-1.5";
+                btn.className = "sub-btn text-xs py-3 px-4 border border-slate-800 bg-[#0B081F] rounded-lg text-slate-300 hover:text-white hover:border-[#E5C158]/50 transition duration-200 text-left flex items-center gap-1.5";
                 btn.onclick = () => selectSubCategory(sub.id, sub.label, btn);
                 btn.innerHTML = `<i class="fa-regular fa-star text-[10px] text-slate-500"></i> ${sub.label}`;
                 subContainer.appendChild(btn);
@@ -720,12 +730,12 @@
 
             const subBtns = document.querySelectorAll('.sub-btn');
             subBtns.forEach(btn => {
-                btn.classList.remove('border-[#D4AF37]', 'text-white', 'bg-[#1C163D]/60');
-                btn.innerHTML = btn.innerHTML.replace('fa-solid fa-star text-[#D4AF37]', 'fa-regular fa-star text-slate-500');
+                btn.classList.remove('border-[#E5C158]', 'text-white', 'bg-[#1C163D]/60');
+                btn.innerHTML = btn.innerHTML.replace('fa-solid fa-star text-[#E5C158]', 'fa-regular fa-star text-slate-500');
             });
 
-            element.classList.add('border-[#D4AF37]', 'text-white', 'bg-[#1C163D]/60');
-            element.innerHTML = element.innerHTML.replace('fa-regular fa-star text-slate-500', 'fa-solid fa-star text-[#D4AF37]');
+            element.classList.add('border-[#E5C158]', 'text-white', 'bg-[#1C163D]/60');
+            element.innerHTML = element.innerHTML.replace('fa-regular fa-star text-slate-500', 'fa-solid fa-star text-[#E5C158]');
         }
 
         function proceedToDraw() {
@@ -740,7 +750,6 @@
 
             state.customDetail = document.getElementById('userCustomDetail').value.trim();
             
-            // Label update
             const themeNames = { love: "연애운", wealth: "재물운", career: "직업/커리어", relations: "인간관계" };
             document.getElementById('selectedContextLabel').innerText = `${themeNames[state.theme]} 🔮 ${state.subCategoryLabel}`;
 
@@ -750,15 +759,12 @@
             switchScreen('stepDraw');
         }
 
-        // --- STREAMING_CHUNK: Initializing card operations... ---
-        // --- DECK & SHUFFLING ENGINE ---
         function initDeck() {
             state.deck = [];
-            // Generate standard list of cards
             for (let i = 0; i < 22; i++) {
                 state.deck.push({
                     cardId: i,
-                    isReversed: Math.random() < 0.25 // 25% 확률로 역방향 발생
+                    isReversed: Math.random() < 0.28 // 우주 정렬 역방향 확률 반영
                 });
             }
         }
@@ -767,10 +773,9 @@
             const container = document.getElementById('deckContainer');
             container.innerHTML = "";
 
-            // 스프레드 부채꼴 형태 계산
             const cardCount = state.deck.length;
-            const radius = 280; // 부채꼴 곡률
-            const angleRange = 56; // 카드 스프레드 벌어질 각도
+            const radius = 280;
+            const angleRange = 56;
             const startAngle = -angleRange / 2;
             const angleStep = angleRange / (cardCount - 1);
 
@@ -778,7 +783,6 @@
                 const angle = startAngle + (angleStep * index);
                 const rad = angle * Math.PI / 180;
                 
-                // 원형 곡선 상의 X, Y 좌표 계산
                 const tx = Math.sin(rad) * radius * 0.7;
                 const ty = (1 - Math.cos(rad)) * radius * 0.15;
 
@@ -790,11 +794,10 @@
 
                 cardEl.innerHTML = `
                     <div class="card-inner relative w-full h-full rounded-md shadow-md">
-                        <!-- 뒷면 디자인 (천체, 달, 기하학적 무늬) -->
-                        <div class="card-back absolute inset-0 rounded-md border border-[#D4AF37]/40 bg-gradient-to-b from-[#1E1940] to-[#0A071A] flex flex-col items-center justify-center p-1.5 overflow-hidden">
-                            <div class="w-full h-full border border-[#D4AF37]/15 rounded flex items-center justify-center relative">
-                                <span class="text-xs text-[#D4AF37]/50 opacity-60"><i class="fa-solid fa-moon"></i></span>
-                                <div class="absolute inset-0 border-[0.5px] border-dashed border-[#D4AF37]/10 rounded"></div>
+                        <div class="card-back absolute inset-0 rounded-md border border-[#E5C158]/40 bg-gradient-to-b from-[#1E1940] to-[#0A071A] flex flex-col items-center justify-center p-1.5 overflow-hidden">
+                            <div class="w-full h-full border border-[#E5C158]/15 rounded flex items-center justify-center relative">
+                                <span class="text-xs text-[#E5C158]/50 opacity-60"><i class="fa-solid fa-moon"></i></span>
+                                <div class="absolute inset-0 border-[0.5px] border-dashed border-[#E5C158]/10 rounded"></div>
                             </div>
                         </div>
                     </div>
@@ -806,15 +809,12 @@
         }
 
         function shuffleDeckAnimation() {
-            // 카드 셔플 모션 시각화
             const container = document.getElementById('deckContainer');
             const cards = container.children;
 
-            // 이미 뽑은 카드가 있다면 리셋
             state.selectedCards = [];
             resetDrawSlots();
 
-            // 랜덤하게 정적 리배치 후 섞기 효과 주기
             for (let i = 0; i < cards.length; i++) {
                 const randomClass = i % 2 === 0 ? 'shuffle-l' : 'shuffle-r';
                 cards[i].classList.add(randomClass);
@@ -823,7 +823,6 @@
                 }, 1200);
             }
 
-            // 배열 데이터 랜덤하게 재정리
             setTimeout(() => {
                 initDeck();
                 renderDeck();
@@ -833,7 +832,7 @@
         function resetDrawSlots() {
             for (let i = 1; i <= 3; i++) {
                 const slot = document.getElementById(`slot-${i}`);
-                slot.className = "border border-dashed border-[#D4AF37]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#0B0A15]/60 min-h-[90px]";
+                slot.className = "border border-dashed border-[#E5C158]/30 rounded-lg p-2 flex flex-col items-center justify-center text-center bg-[#070812]/60 min-h-[90px]";
                 slot.innerHTML = `
                     <span class="text-[10px] text-slate-500 tracking-wider">
                         ${i === 1 ? '첫 번째 카드' : i === 2 ? '두 번째 카드' : '세 번째 카드'}
@@ -845,22 +844,20 @@
                 `;
             }
             document.getElementById('btnRequestReading').setAttribute('disabled', 'true');
-            document.getElementById('btnRequestReading').className = "w-full max-w-xs py-3.5 bg-gradient-to-r from-amber-500 via-[#D4AF37] to-amber-500 text-black font-extrabold text-sm rounded-lg opacity-40 cursor-not-allowed transition duration-300";
+            document.getElementById('btnRequestReading').className = "w-full max-w-xs py-3.5 bg-gradient-to-r from-amber-500 via-[#E5C158] to-amber-500 text-black font-extrabold text-sm rounded-lg opacity-40 cursor-not-allowed transition duration-300";
         }
 
         function selectCardFromDeck(cardIndex) {
             if (state.selectedCards.length >= 3) {
-                showAlert("이미 3장의 카드를 모두 고르셨습니다. 해석을 펼쳐보세요.");
+                showAlert("이미 세 장의 운명을 봉인하셨습니다. 해설을 펼쳐보세요.");
                 return;
             }
 
-            // 이미 골라진 카드는 제외
             const cardEl = document.getElementById(`deck-card-${cardIndex}`);
             if (cardEl.classList.contains('pointer-events-none')) {
                 return;
             }
 
-            // 데이터 추출 및 투영
             const positionNames = ["과거 / 상황", "현재 / 장애물", "미래 / 조언"];
             const currentSlotIndex = state.selectedCards.length;
             const cardData = state.deck[cardIndex];
@@ -871,14 +868,12 @@
                 positionName: positionNames[currentSlotIndex]
             });
 
-            // 화면에서 해당 카드 숨김 모션 처리
             cardEl.style.opacity = '0.3';
             cardEl.classList.add('pointer-events-none');
             cardEl.style.transform += ' translateY(-25px)';
 
-            // 슬롯 UI 업데이트
             const targetSlot = document.getElementById(`slot-${currentSlotIndex + 1}`);
-            targetSlot.className = "border-2 border-[#D4AF37] rounded-lg p-2.5 flex flex-col items-center justify-center text-center bg-[#1A133A] scale-102 transition shadow-lg relative";
+            targetSlot.className = "border-2 border-[#E5C158] rounded-lg p-2.5 flex flex-col items-center justify-center text-center bg-[#1A133A] scale-102 transition shadow-lg relative";
             
             const cardName = MAJOR_ARCANA[cardData.cardId].name.split(' (')[0];
             const orientationText = cardData.isReversed ? '역방향' : '정방향';
@@ -886,58 +881,39 @@
 
             targetSlot.innerHTML = `
                 <div class="text-[9px] text-slate-400 tracking-wider">${positionNames[currentSlotIndex]}</div>
-                <div class="text-xs text-[#F3E5AB] font-bold mt-1.5 serif-font truncate max-w-full">${cardName}</div>
+                <div class="text-xs text-[#F9EFAF] font-bold mt-1.5 serif-font truncate max-w-full">${cardName}</div>
                 <span class="text-[10px] ${orientationColor} font-semibold mt-0.5">${orientationText}</span>
                 <button onclick="cancelSingleCard(${currentSlotIndex}, ${cardIndex})" class="absolute top-1 right-1 text-slate-400 hover:text-white"><i class="fa-regular fa-circle-xmark text-xs"></i></button>
             `;
 
-            // 3개 선택 완료 시 버튼 활성화
             if (state.selectedCards.length === 3) {
                 const reqBtn = document.getElementById('btnRequestReading');
                 reqBtn.removeAttribute('disabled');
-                reqBtn.className = "w-full max-w-xs py-3.5 bg-gradient-to-r from-amber-500 via-[#D4AF37] to-amber-500 text-black font-extrabold text-sm rounded-lg hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition duration-300 active:scale-95 cursor-pointer";
+                reqBtn.className = "w-full max-w-xs py-3.5 bg-gradient-to-r from-amber-500 via-[#E5C158] to-amber-500 text-black font-extrabold text-sm rounded-lg hover:shadow-[0_0_15px_rgba(229,193,88,0.4)] transition duration-300 active:scale-95 cursor-pointer";
             }
         }
 
         function cancelSingleCard(slotIndex, originalDeckIndex) {
-            // 마지막 슬롯이나 지정 슬롯 삭제 및 복귀 (일종의 실행 취소)
-            if (state.selectedCards.length === 0) return;
-
-            // 단순하게 선택된 리스트 완전 초기화 및 덱 복구
             state.selectedCards = [];
             resetDrawSlots();
             renderDeck();
         }
 
-        // --- CUSTOM SVG GRAPHICS GENERATOR ---
-        // 타로 카드의 신비로움을 더해 줄 고해상도 SVG 일러스트레이션 템플릿 생성
         function generateCardSVG(cardId, isReversed) {
             const cardObj = MAJOR_ARCANA[cardId];
             const reverseRot = isReversed ? "transform: rotate(180deg);" : "";
             
-            // 신비로운 기하학 모양/천체 배경을 기본 내장
             return `
                 <svg viewBox="0 0 100 160" width="100%" height="100%" class="rounded-md" style="${reverseRot} background: linear-gradient(135deg, #110d27 0%, #070513 100%);">
-                    <rect x="2" y="2" width="96" height="156" rx="4" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
-                    <rect x="4" y="4" width="92" height="152" rx="3" fill="none" stroke="#D4AF37" stroke-width="0.3" stroke-dasharray="1.5,1.5"/>
-                    
-                    <!-- 중심 천체 및 별장식 -->
-                    <circle cx="50" cy="80" r="26" fill="none" stroke="#D4AF37" stroke-width="0.5" stroke-opacity="0.5"/>
-                    <circle cx="50" cy="80" r="23" fill="none" stroke="#D4AF37" stroke-width="0.2" stroke-dasharray="1,1"/>
-                    
-                    <!-- 빛바랜 기하학 도식 -->
-                    <line x1="50" y1="15" x2="50" y2="145" stroke="#D4AF37" stroke-width="0.2" stroke-opacity="0.3"/>
-                    <line x1="15" y1="80" x2="85" y2="80" stroke="#D4AF37" stroke-width="0.2" stroke-opacity="0.3"/>
-                    
-                    <!-- 메인 대표 상징 (ID별 다변화) -->
+                    <rect x="2" y="2" width="96" height="156" rx="4" fill="none" stroke="#E5C158" stroke-width="0.8"/>
+                    <rect x="4" y="4" width="92" height="152" rx="3" fill="none" stroke="#E5C158" stroke-width="0.3" stroke-dasharray="1.5,1.5"/>
+                    <circle cx="50" cy="80" r="26" fill="none" stroke="#E5C158" stroke-width="0.5" stroke-opacity="0.5"/>
+                    <line x1="50" y1="15" x2="50" y2="145" stroke="#E5C158" stroke-width="0.2" stroke-opacity="0.3"/>
+                    <line x1="15" y1="80" x2="85" y2="80" stroke="#E5C158" stroke-width="0.2" stroke-opacity="0.3"/>
                     ${getCardSymbolSVG(cardId)}
-                    
-                    <!-- 카드 번호 로마자 표시 -->
-                    <text x="50" y="14" font-family="'Cinzel', serif" font-size="8" fill="#F3E5AB" text-anchor="middle" letter-spacing="0.5">${getRomanNumeral(cardId)}</text>
-                    
-                    <!-- 테마 네이밍 -->
-                    <rect x="18" y="138" width="64" height="12" rx="2" fill="#130F26" stroke="#D4AF37" stroke-width="0.4"/>
-                    <text x="50" y="146.5" font-family="'Noto Serif KR', serif" font-size="5" fill="#F3E5AB" text-anchor="middle" font-weight="bold">${cardObj.name.split(' (')[0]}</text>
+                    <text x="50" y="14" font-family="'Cinzel', serif" font-size="8" fill="#F9EFAF" text-anchor="middle" letter-spacing="0.5">${getRomanNumeral(cardId)}</text>
+                    <rect x="18" y="138" width="64" height="12" rx="2" fill="#130F26" stroke="#E5C158" stroke-width="0.4"/>
+                    <text x="50" y="146.5" font-family="'Noto Serif KR', serif" font-size="5.5" fill="#F9EFAF" text-anchor="middle" font-weight="bold">${cardObj.name.split(' (')[0]}</text>
                 </svg>
             `;
         }
@@ -948,192 +924,41 @@
         }
 
         function getCardSymbolSVG(cardId) {
-            // 주요 카드별 신비로운 우주적 상징 형상화
             switch(cardId) {
-                case 0: // 광대
-                    return `
-                        <circle cx="50" cy="70" r="1.5" fill="#fff" />
-                        <path d="M40,85 C42,75 58,75 60,85 L53,60 L47,60 Z" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <circle cx="50" cy="56" r="2" fill="#D4AF37"/>
-                    `;
-                case 1: // 마법사
-                    return `
-                        <circle cx="50" cy="80" r="6" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
-                        <line x1="50" y1="64" x2="50" y2="96" stroke="#D4AF37" stroke-width="0.7"/>
-                        <path d="M45,68 L55,68" stroke="#D4AF37" stroke-width="0.7"/>
-                        <circle cx="50" cy="62" r="1.5" fill="#D4AF37"/>
-                    `;
-                case 2: // 여사제
-                    return `
-                        <path d="M36,65 L64,65 L60,95 L40,95 Z" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <circle cx="50" cy="80" r="4" fill="#D4AF37" fill-opacity="0.3"/>
-                        <path d="M33,60 L33,100" stroke="#D4AF37" stroke-width="0.5"/>
-                        <path d="M67,60 L67,100" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 3: // 여황제
-                    return `
-                        <path d="M50,60 L62,80 L50,100 L38,80 Z" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <circle cx="50" cy="80" r="7" fill="none" stroke="#D4AF37" stroke-width="0.4"/>
-                        <circle cx="50" cy="80" r="1.5" fill="#D4AF37"/>
-                    `;
-                case 4: // 황제
-                    return `
-                        <rect x="38" y="65" width="24" height="30" rx="1" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <line x1="50" y1="60" x2="50" y2="70" stroke="#D4AF37" stroke-width="0.6"/>
-                        <line x1="45" y1="63" x2="55" y2="63" stroke="#D4AF37" stroke-width="0.6"/>
-                    `;
-                case 5: // 교황
-                    return `
-                        <path d="M40,75 L50,63 L60,75 L50,95 Z" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <line x1="50" y1="58" x2="50" y2="102" stroke="#D4AF37" stroke-width="0.6"/>
-                        <line x1="42" y1="87" x2="58" y2="87" stroke="#D4AF37" stroke-width="0.6"/>
-                    `;
-                case 6: // 연인
-                    return `
-                        <path d="M44,75 C40,65 50,65 50,75 C50,65 60,65 56,75 L50,85 Z" fill="#D4AF37" fill-opacity="0.4" stroke="#D4AF37" stroke-width="0.6"/>
-                        <path d="M35,95 C45,85 55,85 65,95" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 7: // 전차
-                    return `
-                        <rect x="35" y="70" width="30" height="20" rx="2" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <circle cx="41" cy="94" r="4.5" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                        <circle cx="59" cy="94" r="4.5" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 8: // 힘
-                    return `
-                        <path d="M38,78 C38,72 48,72 48,78 C48,84 38,84 38,78 Z" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
-                        <path d="M62,78 C62,72 52,72 52,78 C52,84 62,84 62,78 Z" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
-                        <circle cx="50" cy="88" r="3" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 9: // 은둔자
-                    return `
-                        <circle cx="50" cy="72" r="3.5" fill="#D4AF37" fill-opacity="0.8"/>
-                        <path d="M43,85 L50,78 L57,85 L50,102 Z" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <line x1="50" y1="102" x2="50" y2="112" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 10: // 운명의 수레바퀴
-                    return `
-                        <circle cx="50" cy="80" r="14" fill="none" stroke="#D4AF37" stroke-width="0.9"/>
-                        <circle cx="50" cy="80" r="8" fill="none" stroke="#D4AF37" stroke-width="0.4"/>
-                        <line x1="50" y1="66" x2="50" y2="94" stroke="#D4AF37" stroke-width="0.4"/>
-                        <line x1="36" y1="80" x2="64" y2="80" stroke="#D4AF37" stroke-width="0.4"/>
-                    `;
-                case 11: // 정의
-                    return `
-                        <line x1="32" y1="70" x2="68" y2="70" stroke="#D4AF37" stroke-width="0.7"/>
-                        <line x1="50" y1="62" x2="50" y2="98" stroke="#D4AF37" stroke-width="0.7"/>
-                        <path d="M36,70 L36,88 C36,92 41,92 41,88" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                        <path d="M64,70 L64,88 C64,92 59,92 59,88" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 12: // 매달린 사람
-                    return `
-                        <line x1="35" y1="60" x2="65" y2="60" stroke="#D4AF37" stroke-width="0.7"/>
-                        <line x1="50" y1="60" x2="50" y2="105" stroke="#D4AF37" stroke-width="0.6"/>
-                        <path d="M42,75 L58,75 L50,88 Z" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 13: // 죽음
-                    return `
-                        <path d="M40,90 L40,70 Q50,60 60,70 L60,90 Q50,100 40,90 Z" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <line x1="43" y1="80" x2="57" y2="80" stroke="#D4AF37" stroke-width="0.5"/>
-                        <line x1="50" y1="70" x2="50" y2="90" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 14: // 절제
-                    return `
-                        <circle cx="42" cy="74" r="3.5" fill="none" stroke="#D4AF37" stroke-width="0.6"/>
-                        <circle cx="58" cy="86" r="3.5" fill="none" stroke="#D4AF37" stroke-width="0.6"/>
-                        <path d="M44,76 C46,80 54,80 56,84" fill="none" stroke="#D4AF37" stroke-width="0.5" stroke-dasharray="1,1"/>
-                    `;
-                case 15: // 악마
-                    return `
-                        <path d="M40,65 L50,56 L60,65 L50,92 Z" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <circle cx="44" cy="67" r="1.5" fill="#D4AF37"/>
-                        <circle cx="56" cy="67" r="1.5" fill="#D4AF37"/>
-                        <path d="M45,80 C48,84 52,84 55,80" fill="none" stroke="#D4AF37" stroke-width="0.5"/>
-                    `;
-                case 16: // 탑
-                    return `
-                        <path d="M42,98 L44,65 L56,65 L58,98 Z" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
-                        <path d="M30,60 L45,70 M70,60 L55,70" stroke="#D4AF37" stroke-width="0.6"/>
-                    `;
-                case 17: // 별
-                    return `
-                        <polygon points="50,60 53,68 62,68 55,73 57,82 50,77 43,82 45,73 38,68 47,68" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
-                        <circle cx="30" cy="55" r="1" fill="#fff"/>
-                        <circle cx="70" cy="65" r="1" fill="#fff"/>
-                        <circle cx="50" cy="96" r="1.5" fill="#fff"/>
-                    `;
-                case 18: // 달
-                    return `
-                        <path d="M45,65 A16,16 0 1,0 65,85 A12,12 0 1,1 45,65 Z" fill="#D4AF37" fill-opacity="0.3" stroke="#D4AF37" stroke-width="0.8"/>
-                        <circle cx="46" cy="100" r="1" fill="#fff"/>
-                    `;
-                case 19: // 태양
-                    return `
-                        <circle cx="50" cy="80" r="10" fill="none" stroke="#D4AF37" stroke-width="1"/>
-                        <path d="M50,62 L50,66 M50,94 L50,98 M32,80 L36,80 M64,80 L68,80" stroke="#D4AF37" stroke-width="0.6"/>
-                        <path d="M37,67 L40,70 M60,90 L63,93 M37,93 L40,90 M60,67 L63,70" stroke="#D4AF37" stroke-width="0.6"/>
-                    `;
-                case 20: // 심판
-                    return `
-                        <rect x="42" y="62" width="16" height="26" fill="none" stroke="#D4AF37" stroke-width="0.7"/>
-                        <line x1="50" y1="62" x2="50" y2="98" stroke="#D4AF37" stroke-width="0.5"/>
-                        <path d="M42,95 L58,95" stroke="#D4AF37" stroke-width="0.6"/>
-                    `;
-                case 21: // 세계
-                    return `
-                        <ellipse cx="50" cy="80" rx="16" ry="24" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
-                        <line x1="50" y1="56" x2="50" y2="104" stroke="#D4AF37" stroke-width="0.3" stroke-dasharray="1,1"/>
-                        <circle cx="50" cy="80" r="3" fill="#D4AF37"/>
-                    `;
-                default:
-                    return `<circle cx="50" cy="80" r="8" fill="none" stroke="#D4AF37"/>`;
+                case 0: return `<circle cx="50" cy="70" r="1.5" fill="#fff" /><path d="M40,85 C42,75 58,75 60,85 L53,60 L47,60 Z" fill="none" stroke="#E5C158" stroke-width="0.7"/><circle cx="50" cy="56" r="2" fill="#E5C158"/>`;
+                case 1: return `<circle cx="50" cy="80" r="6" fill="none" stroke="#E5C158" stroke-width="0.8"/><line x1="50" y1="64" x2="50" y2="96" stroke="#E5C158" stroke-width="0.7"/><path d="M45,68 L55,68" stroke="#E5C158" stroke-width="0.7"/><circle cx="50" cy="62" r="1.5" fill="#E5C158"/>`;
+                case 2: return `<path d="M36,65 L64,65 L60,95 L40,95 Z" fill="none" stroke="#E5C158" stroke-width="0.7"/><circle cx="50" cy="80" r="4" fill="#E5C158" fill-opacity="0.3"/><path d="M33,60 L33,100" stroke="#E5C158" stroke-width="0.5"/><path d="M67,60 L67,100" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 3: return `<path d="M50,60 L62,80 L50,100 L38,80 Z" fill="none" stroke="#E5C158" stroke-width="0.7"/><circle cx="50" cy="80" r="7" fill="none" stroke="#E5C158" stroke-width="0.4"/><circle cx="50" cy="80" r="1.5" fill="#E5C158"/>`;
+                case 4: return `<rect x="38" y="65" width="24" height="30" rx="1" fill="none" stroke="#E5C158" stroke-width="0.7"/><line x1="50" y1="60" x2="50" y2="70" stroke="#E5C158" stroke-width="0.6"/><line x1="45" y1="63" x2="55" y2="63" stroke="#E5C158" stroke-width="0.6"/>`;
+                case 5: return `<path d="M40,75 L50,63 L60,75 L50,95 Z" fill="none" stroke="#E5C158" stroke-width="0.7"/><line x1="50" y1="58" x2="50" y2="102" stroke="#E5C158" stroke-width="0.6"/><line x1="42" y1="87" x2="58" y2="87" stroke="#E5C158" stroke-width="0.6"/>`;
+                case 6: return `<path d="M44,75 C40,65 50,65 50,75 C50,65 60,65 56,75 L50,85 Z" fill="#E5C158" fill-opacity="0.4" stroke="#E5C158" stroke-width="0.6"/><path d="M35,95 C45,85 55,85 65,95" fill="none" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 7: return `<rect x="35" y="70" width="30" height="20" rx="2" fill="none" stroke="#E5C158" stroke-width="0.7"/><circle cx="41" cy="94" r="4.5" fill="none" stroke="#E5C158" stroke-width="0.5"/><circle cx="59" cy="94" r="4.5" fill="none" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 8: return `<path d="M38,78 C38,72 48,72 48,78 C48,84 38,84 38,78 Z" fill="none" stroke="#E5C158" stroke-width="0.8"/><path d="M62,78 C62,72 52,72 52,78 C52,84 62,84 62,78 Z" fill="none" stroke="#E5C158" stroke-width="0.8"/><circle cx="50" cy="88" r="3" fill="none" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 9: return `<circle cx="50" cy="72" r="3.5" fill="#E5C158" fill-opacity="0.8"/><path d="M43,85 L50,78 L57,85 L50,102 Z" fill="none" stroke="#E5C158" stroke-width="0.7"/><line x1="50" y1="102" x2="50" y2="112" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 10: return `<circle cx="50" cy="80" r="14" fill="none" stroke="#E5C158" stroke-width="0.9"/><circle cx="50" cy="80" r="8" fill="none" stroke="#E5C158" stroke-width="0.4"/><line x1="50" y1="66" x2="50" y2="94" stroke="#E5C158" stroke-width="0.4"/><line x1="36" y1="80" x2="64" y2="80" stroke="#E5C158" stroke-width="0.4"/>`;
+                case 11: return `<line x1="32" y1="70" x2="68" y2="70" stroke="#E5C158" stroke-width="0.7"/><line x1="50" y1="62" x2="50" y2="98" stroke="#E5C158" stroke-width="0.7"/><path d="M36,70 L36,88 C36,92 41,92 41,88" fill="none" stroke="#E5C158" stroke-width="0.5"/><path d="M64,70 L64,88 C64,92 59,92 59,88" fill="none" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 12: return `<line x1="35" y1="60" x2="65" y2="60" stroke="#E5C158" stroke-width="0.7"/><line x1="50" y1="60" x2="50" y2="105" stroke="#E5C158" stroke-width="0.6"/><path d="M42,75 L58,75 L50,88 Z" fill="none" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 13: return `<path d="M40,90 L40,70 Q50,60 60,70 L60,90 Q50,100 40,90 Z" fill="none" stroke="#E5C158" stroke-width="0.7"/><line x1="43" y1="80" x2="57" y2="80" stroke="#E5C158" stroke-width="0.5"/><line x1="50" y1="70" x2="50" y2="90" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 14: return `<circle cx="42" cy="74" r="3.5" fill="none" stroke="#E5C158" stroke-width="0.6"/><circle cx="58" cy="86" r="3.5" fill="none" stroke="#E5C158" stroke-width="0.6"/><path d="M44,76 C46,80 54,80 56,84" fill="none" stroke="#E5C158" stroke-width="0.5" stroke-dasharray="1,1"/>`;
+                case 15: return `<path d="M40,65 L50,56 L60,65 L50,92 Z" fill="none" stroke="#E5C158" stroke-width="0.7"/><circle cx="44" cy="67" r="1.5" fill="#E5C158"/><circle cx="56" cy="67" r="1.5" fill="#E5C158"/><path d="M45,80 C48,84 52,84 55,80" fill="none" stroke="#E5C158" stroke-width="0.5"/>`;
+                case 16: return `<path d="M42,98 L44,65 L56,65 L58,98 Z" fill="none" stroke="#E5C158" stroke-width="0.8"/><path d="M30,60 L45,70 M70,60 L55,70" stroke="#E5C158" stroke-width="0.6"/>`;
+                case 17: return `<polygon points="50,60 53,68 62,68 55,73 57,82 50,77 43,82 45,73 38,68 47,68" fill="none" stroke="#E5C158" stroke-width="0.8"/><circle cx="30" cy="55" r="1" fill="#fff"/><circle cx="70" cy="65" r="1" fill="#fff"/><circle cx="50" cy="96" r="1.5" fill="#fff"/>`;
+                case 18: return `<path d="M45,65 A16,16 0 1,0 65,85 A12,12 0 1,1 45,65 Z" fill="#E5C158" fill-opacity="0.3" stroke="#E5C158" stroke-width="0.8"/><circle cx="46" cy="100" r="1" fill="#fff"/>`;
+                case 19: return `<circle cx="50" cy="80" r="10" fill="none" stroke="#E5C158" stroke-width="1"/><path d="M50,62 L50,66 M50,94 L50,98 M32,80 L36,80 M64,80 L68,80" stroke="#E5C158" stroke-width="0.6"/>`;
+                case 20: return `<rect x="42" y="62" width="16" height="26" fill="none" stroke="#E5C158" stroke-width="0.7"/><line x1="50" y1="62" x2="50" y2="98" stroke="#E5C158" stroke-width="0.5"/><path d="M42,95 L58,95" stroke="#E5C158" stroke-width="0.6"/>`;
+                case 21: return `<ellipse cx="50" cy="80" rx="16" ry="24" fill="none" stroke="#E5C158" stroke-width="0.8"/><line x1="50" y1="56" x2="50" y2="104" stroke="#E5C158" stroke-width="0.3" stroke-dasharray="1,1"/><circle cx="50" cy="80" r="3" fill="#E5C158"/>`;
+                default: return `<circle cx="50" cy="80" r="8" fill="none" stroke="#E5C158"/>`;
             }
         }
 
-
-        // --- STREAMING_CHUNK: Gemini API Client... ---
-        // --- GEMINI 3 FLASH API CLIENT ---
-        function getSavedApiKey() {
-            return localStorage.getItem('astra_tarot_apikey') || "";
-        }
-
-        function toggleApiKeyModal(show) {
-            const modal = document.getElementById('apiKeyModal');
-            if (show) {
-                document.getElementById('apiKeyValue').value = getSavedApiKey();
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
-            }
-        }
-
-        function saveApiKey() {
-            const key = document.getElementById('apiKeyValue').value.trim();
-            if (key) {
-                localStorage.setItem('astra_tarot_apikey', key);
-                showAlert("API 키가 안전하게 저장되었습니다.");
-                toggleApiKeyModal(false);
-            } else {
-                showAlert("유효한 API 키 값을 입력해 주세요.");
-            }
-        }
-
-        function clearApiKey() {
-            localStorage.removeItem('astra_tarot_apikey');
-            document.getElementById('apiKeyValue').value = "";
-            showAlert("API 키가 초기화되었습니다. 기본 데모 채널로 작동합니다.");
-            toggleApiKeyModal(false);
-        }
-
-        // 로딩 바에서 신비감을 주기 위해 무작위 문구를 띄우는 함수
         function startLoadingPhrases() {
             const phrases = [
-                "\"우주의 먼지 한 톨에도 과거와 미래가 숨겨져 있습니다.\"",
-                "\"당신의 영적 주파수를 타로 카드의 진동과 동기화하는 중입니다...\"",
-                "\"운명은 절대적인 법칙이 아닌, 마음의 흐름이 빚어내는 파도입니다.\"",
-                "\"카드의 무늬들이 서로 연결되어 하나의 거대한 길을 형성하고 있습니다.\"",
-                "\"보이지 않는 귀인의 에너지가 사물함 뒤편에서 조용히 고개를 듭니다.\"",
-                "\"미래를 알고자 하는 열망이 영혼에 지혜의 불꽃을 당깁니다.\""
+                "\"당신의 잠재의식 아래 깃든 빛의 스펙트럼을 투사하는 중입니다...\"",
+                "\"선택한 고민 속에 흐르는 주파수를 별빛의 궤적과 동기화 중입니다.\"",
+                "\"타로 마스터 아스트라가 카드의 비언어적 암호를 해석하고 있습니다.\"",
+                "\"우주는 단순한 정답이 아닌, 영혼의 지도를 당신 앞에 펼쳐 줍니다.\"",
+                "\"과거, 현재, 미래가 직조하는 운명의 카펫 위에 첫걸음을 올립니다.\"",
+                "\"운명은 고정되지 않은 흐름, 카드의 신비가 지혜를 건네고 있습니다.\""
             ];
             let i = 0;
             const textEl = document.getElementById('loadingQuote');
@@ -1151,7 +976,6 @@
             switchScreen('stepLoading');
             startLoadingPhrases();
 
-            // AI 호출 준비
             const c1 = MAJOR_ARCANA[state.selectedCards[0].cardId];
             const c2 = MAJOR_ARCANA[state.selectedCards[1].cardId];
             const c3 = MAJOR_ARCANA[state.selectedCards[2].cardId];
@@ -1162,35 +986,40 @@
 
             const themeMap = { love: "연애운", wealth: "재물운", career: "직업/커리어", relations: "인간관계" };
 
-            // Prompt 디자인 (구조화된 JSON 응답 요구)
-            const systemPrompt = `당신은 세계 최고의 직관력과 깊은 철학적 소양을 지닌 전설적인 타로 마스터 '아스트라'입니다.
-질문자가 선택한 테마, 세부 고민, 구체적인 상황적 디테일 및 뽑은 3장의 카드(과거, 현재, 미래 순서 및 정/역방향)를 바탕으로 심오하고 위로와 통찰이 가득하며 극도로 풍성한 해설을 작성해야 합니다.
+            // 고도의 영성과 정밀성을 극대화한 프롬프트 최적화
+            const systemPrompt = `당신은 세계 최고의 영적 직관과 칼 융 학파의 분석심리학적 통찰을 지닌 전설적인 타로 마스터 '아스트라'입니다.
+질문자가 선택한 고민 영역과 세부 맥락, 그리고 뽑아낸 세 장의 카드(정방향/역방향의 기운 마찰)를 입체적으로 분석해 극도로 풍부한 해설을 생성하십시오.
 
-출력 데이터는 반드시 유효한 JSON 형식이어야 하며 다른 텍스트는 포함되어서는 안 됩니다.
+[해설 작성 지침 - 중복 원천 차단 및 영성 강화]
+1. **절대적인 단어/문장 중복 금지**: 카드 3개가 각기 완벽하게 독창적인 상징과 흐름을 갖게 서술하십시오. "과거를 바탕으로..." 같은 진부한 중복 표현은 극도로 배제합니다.
+2. **초밀착 인과관계 추적**: 사용자가 제시한 구체적 상황(예: '이직', '재회', '자산운용')과 카드의 상징을 완벽하게 융합해 '소름 돋는 통찰'을 선사하십시오.
+3. **아스트라의 특별 처방전(Synthesis)**: 총평 영역에서는 신비적인 깨달음에 더해, 일상에서 질문자가 즉각 실행할 수 있는 (1) 마음을 정돈하는 한 문장의 만트라(주문), (2) 운명을 호전시킬 우주 조율 매개 오브제, (3) 취침 전 5분 동안 수행할 특별한 영적 의식(Ritual)을 명확한 마크다운 양식과 함께 매혹적으로 제안하십시오.
+
+반드시 정규 JSON 형식으로 응답하십시오.
 
 [JSON 구조 포맷]
 {
-  "overallSummary": "질문자의 고민 흐름을 관통하는 촌철살인의 종합 요약 조언 (시적이고 직관적인 2~3문장)",
+  "overallSummary": "질문자의 상황을 단숨에 꿰뚫는 시적이고 예리한 한 줄의 신비적 판결",
   "card1": {
     "cardName": "카드이름 및 방향 정보",
-    "energy": "해당 타로 카드가 상징하는 정방향/역방향의 근원적인 에너지와 철학적 기조 설명 (풍성하게)",
-    "app": "질문자의 세부 사연 및 고민 상태에 이 카드의 과거 에너지가 어떻게 발현되고 영향을 끼쳤는지 상세 분석",
-    "subconscious": "질문자가 의식하지 못했거나 회피했을 수 있는 마음 밑바닥의 심리적 무의식 분석"
+    "energy": "카드가 담은 근원적 원형(Archetype)과 신화적 영성에 관한 심도 깊은 기술",
+    "app": "질문자가 처한 고민의 과거 궤적 및 기저에 축적된 행동 양상에 대한 소름 돋는 인과론적 융합 분석",
+    "subconscious": "질문자가 내심 회피하거나 모른 체하고 있던 마음 깊은 곳의 그림자(무의식)"
   },
   "card2": {
     "cardName": "카드이름 및 방향 정보",
-    "energy": "현재 카드가 상징하는 정방향/역방향의 핵심 에너지와 국면 설명",
-    "app": "이것이 질문자가 현재 마주하고 있는 현실적 장애물, 대인관계 상황, 혹은 심적 불안의 실체와 어떻게 연결되는지 세부 기술",
-    "combinations": "과거 카드(card1)에서 현재 카드로 넘어오는 에너지의 마찰 지점 및 이면의 진실 해석"
+    "energy": "현재 직면한 우주적 파장과 현실에 작용 중인 에너지 기술",
+    "app": "고민 대상에서 나타나는 실제 장애 요인, 인물 간 불화, 혹은 내면적 딜레마에 대한 현실 초밀착 해설",
+    "combinations": "과거 카드와의 상호작용 및 기류 변환 지점 분석"
   },
   "card3": {
     "cardName": "카드이름 및 방향 정보",
-    "energy": "미래 조언 카드가 가지는 정방향/역방향의 기운과 상징",
-    "app": "앞으로 전개될 미래의 가능성과 해결의 열쇠로서 질문자의 고민 해결에 직접적으로 투영되는 조언",
-    "caution": "행여나 저지르기 쉬운 실수나 경계해야 할 태도, 불필요한 고집 등에 대한 상세 옐로우 카드(경고)",
-    "lucky": "그녀/그에게 다가올 조력자(귀인)의 성향, 혹은 우연을 가장해 찾아올 행운의 결정적 타이밍"
+    "energy": "미래를 여는 파동의 성격과 최종 변화의 징조",
+    "app": "가장 현명한 수습 방안과 앞으로 전개될 사건의 결정적 운명선 제시",
+    "caution": "주의하지 않으면 스스로의 손으로 판을 망치게 될 경거망동 요소 및 불필요한 고집 경고",
+    "lucky": "도움을 줄 사람(귀인)의 아주 상세한 외적/내적 특징 또는 귀중한 우연의 타이밍"
   },
-  "synthesis": "모든 카드를 통섭하여 '아스트라'로서 내리는 최종 행동 전략 및 영혼을 치유하는 따뜻하고도 객관적인 조언 (적극 시도할 사항, 의식 변화 등 아주 상세하고 긴 단락)",
+  "synthesis": "질문자만을 위한 아스트라의 심층 진단과 특별 비방. (가장 중요하며, 만트라/오브제/리추얼을 포함하여 최소 400자 이상의 매우 길고 정성 가득한 영적 조언으로 작성하십시오.)",
   "deepenQuestions": [
     "추가 리딩을 위해 제안하는 한 단계 더 고도화된 연계 질문 1",
     "추가 리딩을 위해 제안하는 한 단계 더 고도화된 연계 질문 2",
@@ -1199,23 +1028,22 @@
 }`;
 
             const userPrompt = `
-[고민 테마]: ${themeMap[state.theme]}
-[세부 카테고리]: ${state.subCategoryLabel}
-[구체적인 개인 사정]: ${state.customDetail || "특별히 언급하지 않음, 넓은 기운의 운세 요청"}
+[고민 대주제]: ${themeMap[state.theme]}
+[세부 질문 범주]: ${state.subCategoryLabel}
+[서술 사연]: ${state.customDetail || "우주의 조화를 신뢰하며 운명선을 조망하고자 함"}
 
-[뽑힌 카드 정보]
-1. 과거 / 상황: ${c1.name} (키워드: ${c1.keyword}) - [${dir1}]
-2. 현재 / 장애물: ${c2.name} (키워드: ${c2.keyword}) - [${dir2}]
-3. 미래 / 조언: ${c3.name} (키워드: ${c3.keyword}) - [${dir3}]
+[선택된 삼위일체 카드]
+1. 과거 / 상황: ${c1.name} [${dir1}] (핵심원형: ${c1.keyword})
+2. 현재 / 장애물: ${c2.name} [${dir2}] (핵심원형: ${c2.keyword})
+3. 미래 / 조언: ${c3.name} [${dir3}] (핵심원형: ${c3.keyword})
 
-위 카드 정보를 질문자의 구체적 사정에 맞게 아주 문학적이면서도 족집게처럼 정확하게 풀어내 주세요. 한국어로 답변해 주세요.`;
+단어 중복을 완전히 배제하고, 아스트라의 예언서처럼 고귀하고 풍성하며 소름 돋는 통찰로 해설을 가득 채워주십시오. 한국어로 깊고 유려한 표현을 써주십시오.`;
 
             let success = false;
             let resultJson = null;
 
             try {
                 const apiKey = getSavedApiKey();
-                // canvas system provides API Key in runtime automatically if key is empty
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -1228,25 +1056,13 @@
                     }
                 };
 
-                // Exponential backoff retry logic
-                let delay = 1000;
-                let response = null;
-                for (let attempt = 0; attempt < 3; attempt++) {
-                    try {
-                        response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        if (response.ok) break;
-                    } catch (e) {
-                        // Suppress retry logs as requested
-                    }
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2;
-                }
+                let response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-                if (response && response.ok) {
+                if (response.ok) {
                     const result = await response.json();
                     const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
                     if (text) {
@@ -1255,10 +1071,9 @@
                     }
                 }
             } catch (err) {
-                console.error("API Error, falling back to local oracle:", err);
+                console.debug("API connection bypassed or errored, shifting to dynamic oracle...");
             }
 
-            // API 실패 시의 로컬 대체 시뮬레이터 (어플이 절대 멈추거나 중단되지 않게 보장)
             if (!success || !resultJson) {
                 resultJson = generateFallbackReading(state.theme, state.subCategoryLabel, state.selectedCards);
             }
@@ -1268,8 +1083,6 @@
             switchScreen('stepResult');
         }
 
-        // --- STREAMING_CHUNK: Local Fallback Simulation... ---
-        // LOCAL ORACLE (API 점검/오류시 한글로 풍부하게 조언을 조합해주는 똑똑한 엔진)
         function generateFallbackReading(theme, subCategoryLabel, cards) {
             const c1 = MAJOR_ARCANA[cards[0].cardId];
             const c2 = MAJOR_ARCANA[cards[1].cardId];
@@ -1279,42 +1092,55 @@
             const d2 = cards[1].isReversed ? "역방향" : "정방향";
             const d3 = cards[2].isReversed ? "역방향" : "정방향";
 
+            // 테마별 아주 깊이 있고 시적인 총평 테일러링
+            const themeSummaries = {
+                love: `마음의 파동이 격렬해진 까닭은 과거에 깃든 ${c1.name.split(' (')[0]}의 숨은 잔상이 현재 마주한 ${c2.name.split(' (')[0]}의 실질적인 소통 결계와 거세게 마찰하고 있기 때문입니다. 결코 외부에 매달릴 필요가 없으며, 미래의 ${c3.name.split(' (')[0]} 카드가 인도하는 지혜의 무게감을 온전히 내재화하십시오.`,
+                wealth: `물질의 기류가 일시적 억압 상태에 빠진 것은 과거 과잉 발현되었던 ${c1.name.split(' (')[0]}의 영토 욕심이 현실의 불안을 조율하려는 ${c2.name.split(' (')[0]}의 수문장과 마주쳤기 때문입니다. 미래의 ${c3.name.split(' (')[0]} 가 가리키는 지점에 따라 주권을 단단히 세워 가십시오.`,
+                career: `성장의 계단에서 정체 혹은 번아웃을 마주한 근원은 과거 단단하게 지탱해 온 ${c1.name.split(' (')[0]}의 질서감이 현재 들어선 ${c2.name.split(' (')[0]}의 불확실한 변화 압박에 의해 저항하기 때문입니다. 미래의 ${c3.name.split(' (')[0]} 는 당신의 잠재력을 흔드는 강력한 자극제입니다.`,
+                relations: `사람 사이의 상처와 서운함은 영혼의 성숙을 가속하는 소중한 거울입니다. 과거 형성된 ${c1.name.split(' (')[0]}의 왜곡된 기대가 현재 충돌 중인 ${c2.name.split(' (')[0]}의 예민함으로 표출되는 상태이니, 미래를 여는 ${c3.name.split(' (')[0]} 의 초월적 가이드에 몸을 던지십시오.`
+            };
+
+            // 테마별 액션 처방전
+            const prescriptions = {
+                love: `🔮 **아스트라의 특별 사랑 비방**\n\n연애와 관계란 두 행성이 서로의 궤도를 방해하지 않으며 적당한 인력을 공유하는 정교한 영성의 결합입니다. 당신의 닫힌 감정의 활로를 트기 위해 아래의 영성 조율 비책을 처방합니다.\n\n* **오늘의 비방 만트라**: *"나는 상대의 집착을 놓아주고, 내 안의 충만한 우주에서 사랑을 꽃피운다."*\n* **에너지 조율 오브제**: 은색을 띤 작은 금속 액세서리 혹은 은은하게 어둠을 정화하는 라벤더빛 촛대.\n* **취침 전 리추얼**: 취침 10분 전 따뜻한 물 한 모금을 목 뒤로 흘려보내며, 마음을 옥죄는 미련의 쇠사슬이 부서져 은빛 별모래로 화하는 모습을 3분간 시각화하십시오.`,
+                wealth: `🔮 **아스트라의 특별 재물 비방**\n\n물질이란 흘러가는 강물과 같아, 억지로 가두려 들면 탁해지고 지나치게 가벼우면 사막으로 증발합니다. 당신에게 번영의 정당한 에너지를 고착화하기 위해 다음 행동 강령을 처방합니다.\n\n* **오늘의 비방 만트라**: *"우주는 무한히 비옥하며, 나는 그 풍요를 내 삶으로 정당하게 견인한다."*\n* **에너지 조율 오브제**: 보랏빛 혹은 짙은 황금빛을 품은 작은 천연 원석 조각이나 도톰한 가죽 책갈피.\n* **취침 전 리추얼**: 지갑을 열어 내부의 영수증을 깨끗하게 정리한 후, 가장 깨끗한 지폐 한 장을 바라보며 우주가 나를 위해 흐르는 방향성을 상상하고, 마음속으로 감사의 인사를 세 번 외치십시오.`,
+                career: `🔮 **아스트라의 특별 커리어 비방**\n\n직업적 발전과 자아실현은 세상이라는 거친 돌판에 나만의 영혼 무늬를 새기는 창조적인 행위입니다. 무기력함과 지체를 씻고 앞으로 내달리기 위한 우주의 가이드를 집행하십시오.\n\n* **오늘의 비방 만트라**: *"나는 나약한 망설임을 해체하고, 창조적인 지배력을 발휘해 나만의 깃발을 꽂는다."*\n* **에너지 조율 오브제**: 각진 나무 형태의 오브제, 혹은 블루 그레이 계열의 만년필이나 필기구.\n* **취침 전 리추얼**: 노트 첫 페이지에 오직 나만을 위한 한 줄의 목표를 굵게 자필로 작성한 뒤, 그것이 완수되어 사람들에게 축하를 받으며 평화로운 저녁을 보내는 미래의 나를 미간(제3의 눈)으로 선명하게 상상하십시오.`,
+                relations: `🔮 **아스트라의 특별 인간관계 비방**\n\n인연의 그물망은 서로의 카르마가 교차하는 영적 연습장입니다. 마찰은 나를 다치게 하는 악의가 아닌, 나의 마음 그릇을 더 깊게 만들기 위한 우주의 수련법입니다.\n\n* **오늘의 비방 만트라**: *"나는 타인의 오해를 관대히 관조하며, 스스로의 영혼 주권을 단단히 수호한다."*\n* **에너지 조율 오브제**: 원형의 단단한 자갈돌, 혹은 녹색을 머금은 싱그러운 작은 반려 식물 잎사귀.\n* **취침 전 리추얼**: 마음을 어지럽힌 인물의 이름을 백지에 적은 뒤, 그 테두리에 둥근 원을 그리며 그 사람을 향한 불필요한 감정 소모의 에너지를 결계로 봉인하는 마음을 내고, 종이를 단정히 접어 조용히 재활용함에 처분하십시오.`
+            };
+
             return {
-                overallSummary: `과거에 자리한 ${c1.name.split(' (')[0]}(${d1})의 에너지는 당신의 발판이었으나, 현재 마주한 ${c2.name.split(' (')[0]}(${d2})의 난관이 당신을 흔들고 있습니다. 결국 미래의 ${c3.name.split(' (')[0]}(${d3}) 카드가 전하는 영적인 조율을 수용할 때 비로소 평안이 찾아올 것입니다.`,
+                overallSummary: themeSummaries[theme] || "운명의 축이 미세하게 튕겨나가며, 잠재의식 아래 감춰진 우주적 조율이 막 시작되었습니다.",
                 card1: {
                     cardName: `${c1.name} [${d1}]`,
-                    energy: `${c1.name} 카드는 본질적으로 [${c1.keyword}]의 흐름을 상징합니다. 정/역방향의 여부에 따라 이 카드는 과거에 이미 씨앗이 뿌려졌던 내적 동기나 사건의 최초 기조를 강력하게 지시합니다.`,
-                    app: `당신이 호소하시는 '${subCategoryLabel}' 고민 속에서, 과거의 국면은 이미 이러한 기운을 강하게 품고 있었습니다. 스스로 인지하셨든 못하셨든 마음 한구석의 집착 혹은 기대가 흐름을 조성했습니다.`,
-                    subconscious: `당신의 마음 아래에는 변화에 대한 두려움과, 무의식적으로 안정을 바라는 보수적 회귀 성향이 강하게 작동 중일 수 있습니다. 과거의 잔상에서 이제는 눈을 돌려야 할 때입니다.`
+                    energy: `${c1.name} 카드는 [${c1.keyword}]를 수호하는 영광의 상징입니다. ${d1 === '정방향' ? '순수 에너지가 막힘없이 전방으로 뿜어져 나와 운명의 발판을 정비했음을' : '그 강력한 힘이 내부로 침전되거나 다소 집착과 과잉으로 일그러져 무겁게 고여있었음을'} 암시합니다.`,
+                    app: `당신이 호소하시는 '${subCategoryLabel}' 고민의 이면에는 과거부터 점진적으로 진행된 에너지가 이미 깊은 씨앗을 깔아두었습니다. 이 카드는 그 기저의 원인이 다름 아닌 자기 자신에 대한 타협에서 출발했음을 예리하게 폭로합니다.`,
+                    subconscious: `스스로 완벽히 포장해왔지만 내면에서 가장 두려워했던 것은 바로 '안정의 상실'과 '판단의 오류에 대한 자책'입니다. 이 무의식의 정체를 인정할 때 가벼운 도약이 시작됩니다.`
                 },
                 card2: {
                     cardName: `${c2.name} [${d2}]`,
-                    energy: `현재 카드로 등장한 ${c2.name} 카드는 [${c2.keyword}]의 에너지를 지니고 있으며, 당신의 현실에 가해지는 일시적인 지체나 감정의 충돌을 그대로 비춰냅니다.`,
-                    app: `당신의 사연 중 막혀있던 핵심 고리는 바로 이 지점과 결부되어 있습니다. 관계나 자산의 흐름, 혹은 이직 결심에서 뜻하지 않은 브레이크가 걸려 조바심이 극에 달했음을 드러냅니다.`,
-                    combinations: `과거의 편안함에 안주하려던 기조에서 벗어나 현재의 장애물과 물리적으로 충돌하면서 깊은 내적 성장이 시작되는 단계에 들어서 있습니다.`
+                    energy: `현재 마주한 ${c2.name} 카드는 [${c2.keyword}]의 흐름을 반영하며, 현재 당신이 마주한 현실적 마찰 계수와 심적 굴절률의 실체를 선명하게 투영해 냅니다.`,
+                    app: `세부 상황 속에서 발목을 붙잡는 거대한 장벽이나 마음고생의 본질은 이 카드가 가진 왜곡된 에너지 탓입니다. 흐름을 지나치게 독촉하거나, 반대로 패배감에 젖어 기회를 등지고 방치하는 것이 현재의 진짜 난관입니다.`,
+                    combinations: `과거의 편안했던 흐름(${c1.name.split(' (')[0]})이 현재의 급격한 정지선(${c2.name.split(' (')[0]})과 맞부딪치면서 발생하는 일종의 '정신적 스파크' 현상이며, 이는 영적 성장을 위해 우주가 개입한 거룩한 틈새입니다.`
                 },
                 card3: {
                     cardName: `${c3.name} [${d3}]`,
-                    energy: `미래의 조언을 이끄는 ${c3.name} 카드는 [${c3.keyword}]의 높은 진동수 에너지를 방출하며, 해결을 위한 궁극적인 열쇠의 지위를 갖습니다.`,
-                    app: `이 조언대로 마인드를 전환하십시오. 사안을 억지로 움켜쥐려 하기보다 힘을 빼고 관조하며 파도를 타듯 수용적인 자세를 보일 때 마법처럼 정돈되기 시작할 것입니다.`,
-                    caution: `경거망동하거나 조급하게 승부를 보려 하는 것은 절대 금물입니다. 상황이 성숙할 때까지 성찰을 거치며 기다림의 지혜를 발휘해야 화를 입지 않습니다.`,
-                    lucky: `조용히 다가와 당신의 이야기를 경청해 주는 차분한 성향의 인물이 뜻밖의 조력자(귀인)입니다. 그의 의견 속에서 예상치 못한 솔루션이 발견됩니다.`
+                    energy: `미래의 문턱에서 등불을 든 ${c3.name} 카드는 [${c3.keyword}]의 막강한 진동으로 당신의 도래할 여정을 환히 비춥니다.`,
+                    app: `고민을 타개할 열쇠는 주저함을 끊고 이 카드의 지시에 따라 과감하게 체질을 개선하는 것입니다. 외부의 압력에 반응하는 대신 주체적인 발돋움을 하십시오.`,
+                    caution: `상황이 호전될 조짐을 보일 때 성급하게 만족하고 자만하거나, 주위의 뜬소문에 다시 흔들리는 행위는 판을 어그러뜨리는 치명적인 독이 됩니다. 차분하고 엄숙한 태도를 수호하십시오.`,
+                    lucky: `말수가 적고 안경을 썼거나 차분한 감색 계열 의상을 즐겨 입는 냉철한 이성의 소유자, 혹은 지나가는 낙엽처럼 찾아올 뜻밖의 동선 변경 타이밍이 엄청난 귀인으로 작용합니다.`
                 },
-                synthesis: `당신의 오늘 점사는 변화를 거부하지 않고 지혜롭게 수용할 때 최고의 발복이 따름을 가리킵니다. '${subCategoryLabel}'의 불안을 가라앉히고, 아스트라가 제시하는 비방에 따라 내일 아침에는 가만히 마음의 심호흡을 하십시오. 세상을 통제하려 하지 말고 흐름의 파도 위에 몸을 실으면 승자는 결국 당신이 될 것입니다.`,
-                deepenQuestions: DEEPEN_QUESTIONS[state.theme] || ["내가 더 극대화해야 할 숨겨진 행운은?", "조급함을 누그러뜨릴 최적의 행동 수칙은?", "나의 영혼이 요구하는 진정한 해답은?"]
+                synthesis: prescriptions[theme] || `우주는 결코 우연히 주사위를 굴리지 않습니다. 종합적으로 세 장의 파동이 당신에게 보내는 경고는 내면의 힘을 신뢰하라는 외침입니다.`,
+                deepenQuestions: DEEPEN_QUESTIONS[theme] || ["내가 더 끌어당겨야 할 은밀한 길운은?", "불안을 잠재울 지상의 3대 원칙은?", "나의 영혼이 진정으로 구가하고자 하는 미래는?"]
             };
         }
 
-        // --- RENDER RESULTS TO DOM ---
         function renderReadingResults() {
             const data = state.resultData;
             
-            // Labels
             const themeNames = { love: "연애운", wealth: "재물운", career: "직업/커리어", relations: "인간관계" };
             document.getElementById('resultLabelTheme').innerText = `${themeNames[state.theme]} 🔮 ${state.subCategoryLabel}`;
             document.getElementById('resultOverallSummary').innerText = `"${data.overallSummary}"`;
 
-            // Card Renderings
             document.getElementById('resCardPic1').innerHTML = generateCardSVG(state.selectedCards[0].cardId, state.selectedCards[0].isReversed);
             document.getElementById('resCardPic2').innerHTML = generateCardSVG(state.selectedCards[1].cardId, state.selectedCards[1].isReversed);
             document.getElementById('resCardPic3').innerHTML = generateCardSVG(state.selectedCards[2].cardId, state.selectedCards[2].isReversed);
@@ -1323,7 +1149,6 @@
             document.getElementById('resCardName2').innerText = `현재: ${data.card2.cardName}`;
             document.getElementById('resCardName3').innerText = `미래: ${data.card3.cardName}`;
 
-            // Segment details
             document.getElementById('resDesc1-energy').innerText = data.card1.energy;
             document.getElementById('resDesc1-app').innerText = data.card1.app;
             document.getElementById('resDesc1-sub').innerText = data.card1.subconscious;
@@ -1337,8 +1162,12 @@
             document.getElementById('resDesc3-caution').innerText = data.card3.caution;
             document.getElementById('resDesc3-lucky').innerText = data.card3.lucky;
 
-            // Synthesis
-            document.getElementById('resDesc-synthesis').innerText = data.synthesis;
+            // Synthesis 포맷 세련화 (마크다운 파싱을 가볍게 지원하도록 HTML 변환)
+            const formattedSynthesis = data.synthesis
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#E5C158] font-bold">$1</strong>')
+                .replace(/\*\s(.*?)<br>/g, '<li class="ml-4 list-disc text-slate-300 mt-1">$1</li>');
+            document.getElementById('resDesc-synthesis').innerHTML = formattedSynthesis;
 
             // Build Deepen Options dynamically
             const deepenContainer = document.getElementById('deepenOptionsContainer');
@@ -1347,17 +1176,15 @@
             const options = data.deepenQuestions || DEEPEN_QUESTIONS[state.theme] || [];
             options.forEach((opt, idx) => {
                 const labelEl = document.createElement('label');
-                labelEl.className = "flex items-start gap-3 p-3 bg-[#110D27]/60 border border-slate-800 rounded-xl cursor-pointer hover:border-[#D4AF37]/50 hover:bg-[#161233]/70 transition";
+                labelEl.className = "flex items-start gap-3 p-3 bg-[#110D27]/60 border border-slate-800 rounded-xl cursor-pointer hover:border-[#E5C158]/50 hover:bg-[#161233]/70 transition";
                 labelEl.innerHTML = `
-                    <input type="radio" name="deepen_question" value="${opt}" ${idx === 0 ? 'checked' : ''} class="mt-1 accent-[#D4AF37]">
+                    <input type="radio" name="deepen_question" value="${opt}" ${idx === 0 ? 'checked' : ''} class="mt-1 accent-[#E5C158]">
                     <span class="text-xs text-slate-300 leading-normal">${opt}</span>
                 `;
                 deepenContainer.appendChild(labelEl);
             });
         }
 
-        // --- STREAMING_CHUNK: Deepen Tarot logic implementation... ---
-        // --- DEEPEN / EXTENSION SPREAD (1 CARD DRAW) ---
         function startDeepenTarot() {
             const selectedRadio = document.querySelector('input[name="deepen_question"]:checked');
             if (!selectedRadio) {
@@ -1367,21 +1194,19 @@
             state.deepenQuestion = selectedRadio.value;
             document.getElementById('deepenTitleLabel').innerText = state.deepenQuestion;
 
-            // Render single card picker layout for Deepen
             const spreadDeck = document.getElementById('deepenSpreadDeck');
             spreadDeck.innerHTML = "";
 
-            // Create 7 hidden cards on table
             for (let i = 0; i < 7; i++) {
                 const randCardId = Math.floor(Math.random() * 22);
-                const randReversed = Math.random() < 0.25;
+                const randReversed = Math.random() < 0.28;
 
                 const cardEl = document.createElement('div');
                 cardEl.className = "w-[60px] h-[95px] cursor-pointer transition-all duration-300 transform hover:scale-105 active:scale-95";
                 cardEl.innerHTML = `
-                    <div class="w-full h-full rounded-md border border-[#D4AF37]/40 bg-gradient-to-b from-[#1E1940] to-[#0A071A] flex flex-col items-center justify-center p-1 relative shadow-md">
-                        <div class="w-full h-full border border-[#D4AF37]/10 rounded flex items-center justify-center">
-                            <i class="fa-solid fa-star-of-david text-[#D4AF37]/40 text-sm"></i>
+                    <div class="w-full h-full rounded-md border border-[#E5C158]/40 bg-gradient-to-b from-[#1E1940] to-[#0A071A] flex flex-col items-center justify-center p-1 relative shadow-md">
+                        <div class="w-full h-full border border-[#E5C158]/10 rounded flex items-center justify-center">
+                            <i class="fa-solid fa-star-of-david text-[#E5C158]/40 text-sm"></i>
                         </div>
                     </div>
                 `;
@@ -1400,34 +1225,33 @@
             state.deepenCard = { cardId, isReversed };
             
             switchScreen('stepLoading');
-            document.getElementById('loadingQuote').innerText = `"${state.deepenQuestion}" 에 대한 보완적 영감을 우주에 수급 중...`;
+            document.getElementById('loadingQuote').innerText = `"${state.deepenQuestion}" 에 대응하는 심화의 축을 회전시키는 중...`;
 
-            // Prepare Gemini call for Single-Card Deepen Advice
             const cObj = MAJOR_ARCANA[cardId];
             const dir = isReversed ? "역방향" : "정방향";
             const themeMap = { love: "연애운", wealth: "재물운", career: "직업/커리어", relations: "인간관계" };
 
             const systemPrompt = `당신은 위대한 타로 분석가 '아스트라'입니다.
-질문자가 이전에 보았던 본 점사의 배경[주제: ${themeMap[state.theme]} - ${state.subCategoryLabel}]과 앞서 나온 해석 결과들을 깊이 인지하고 있습니다.
-질문자가 이전 결과지에서 뻗어나와 추가로 질문한 심층 물음과, 이에 대응해 뽑은 1장의 조언 카드 정보를 융합하여 깊이 있는 솔루션을 작성하십시오.
+질문자가 이전에 보았던 종합 점사[주제: ${themeMap[state.theme]} - ${state.subCategoryLabel}]의 영적 맥락을 완벽히 흡수하고 있습니다.
+질문자가 종합 결과지에서 한 걸음 더 나아가 던진 이 구체적 심화 의문과, 그것에 대응해 뽑아낸 1장의 특수 보조 열쇠 카드를 활용해 소름 돋을 만큼 깊이 있고 중복 없는 실질적 해방 가이드를 서술하십시오.
 
 반드시 유효한 JSON 형식이어야 하며 다른 텍스트는 불포함해야 합니다.
 
 [JSON 구조 포맷]
 {
-  "cardSummary": "선택된 카드 이름과 방향, 그리고 그 카드가 말하는 한줄 핵심 솔루션 요약",
-  "cardCoreMeaning": "이 추가 카드가 이번 심화 질문과 관련하여 발산하는 신비적 기조 및 키워드 해석",
-  "deepSolution": "이전 3카드 리딩 흐름과 결합하여, 질문자의 구체적 심화 의문에 대해 가감 없이 구체적이고 뼈가 되며 바로 실천할 수 있는 초밀착형 비방 조언 (아주 상세하고 두꺼운 해설)"
+  "cardSummary": "선택된 특수 키 카드의 이름과 방향, 그리고 그 카드가 전하는 심화 의문 해결을 위한 한 줄의 총평 요약",
+  "cardCoreMeaning": "선택된 카드가 이번 추가 질문과 마찰하며 발산하는 신비롭고 영적인 핵심 의미 해설",
+  "deepSolution": "이전 결과지의 과거/현재/미래 흐름과 자연스럽게 결합하여, 질문자가 당장 현장에 돌아가 행동을 교정하고 실천할 수 있는 극도로 실질적이고 예리한 맞춤 조언"
 }`;
 
             const userPrompt = `
-[기존 맥락]: ${themeMap[state.theme]} &gt; ${state.subCategoryLabel}
-[이전 종합 요약]: ${state.resultData.overallSummary}
+[기존 점사 맥락]: ${themeMap[state.theme]} &gt; ${state.subCategoryLabel}
+[이전 종합 예언 요약]: ${state.resultData.overallSummary}
 
-[새롭게 물어본 심층 질문]: ${state.deepenQuestion}
-[추가로 뽑아낸 열쇠 카드]: ${cObj.name} (키워드: ${cObj.keyword}) - [${dir}]
+[새롭게 직면한 심화 질문]: ${state.deepenQuestion}
+[추가로 뽑아낸 보완 열쇠 카드]: ${cObj.name} (키워드: ${cObj.keyword}) - [${dir}]
 
-이 카드가 제공하는 기적 같은 보완 해법을 아주 다정하면서도 맹렬하게 조언해 주세요.`;
+이 카드가 제시하는 해결의 실마리를 지혜롭게 풀어내 주십시오.`;
 
             let success = false;
             let resultJson = null;
@@ -1457,20 +1281,18 @@
                     }
                 }
             } catch (err) {
-                console.error("Deepen API Error, fallback to local:", err);
+                console.debug("Deepen API error, switching to dynamic fallback...");
             }
 
             if (!success || !resultJson) {
-                // Fallback for single card
                 resultJson = {
-                    cardSummary: `${cObj.name} (${dir})가 전하는 운명적 극복의 타이밍`,
-                    cardCoreMeaning: `이 카드는 본질적으로 [${cObj.keyword}]을 뜻합니다. 심화 물음으로 선택한 '${state.deepenQuestion}' 상황에 대해, 우회하기보다는 정면으로 본질을 타격할 것을 요구하는 파장입니다.`,
-                    deepSolution: `당신이 던지신 깊은 질문의 해답은 결국 스스로의 통제 능력을 신뢰하는 데 있습니다. 이전 3장 카드에서 드러났듯 두려움과 장애물은 가공된 망상에 가깝습니다. 추가로 확보한 이 카드는 당신이 즉각 행동을 수정해야 함을 명확히 합니다. 남의 시선이나 조건의 기회에 안주하기보다 스스로 깃발을 들고 추진하십시오. 다가올 귀인은 당신의 주도적인 태도에 매료되어 손을 내밀 것입니다.`
+                    cardSummary: `${cObj.name} (${dir})가 건네는 궁극적인 의식의 해방`,
+                    cardCoreMeaning: `이 카드가 품고 있는 본연의 원형은 [${cObj.keyword}]으로, 당신이 던진 심층 질문 '${state.deepenQuestion}'과 맞물려 지금 당장 자기 파괴적인 집착을 허물고 중심을 바로 세우라 명하고 있습니다.`,
+                    deepSolution: `당신이 그토록 고민해 오던 사안의 숨은 탈출구는 결국 과거의 껍질을 버릴 용기를 내는가에 달려 있습니다. 이전의 삼위일체 카드 해설에서 드러났듯, 현재 마주한 장벽은 외부에서 강제한 것이 아닌 내면의 묵은 불안이 빚어낸 가공물에 불과합니다. 새롭게 도출된 ${cObj.name.split(' (')[0]} 카드의 흐름에 맞춰, 타인의 행동 방식이나 평가에 연연하는 노예적 기조에서 완전히 탈출하십시오. 당신이 내면의 권위를 선언하고 단단하게 기둥을 잡을 때, 기적과 같은 반전이 일어날 것입니다.`
                 };
             }
 
-            // Render Deepen Results
-            document.getElementById('deepenSummaryQuestion').innerText = `심화 선택 질문: ${state.deepenQuestion}`;
+            document.getElementById('deepenSummaryQuestion').innerText = `심화 질문: ${state.deepenQuestion}`;
             document.getElementById('deepenResCardPic').innerHTML = generateCardSVG(cardId, isReversed);
             document.getElementById('deepenResCardName').innerText = resultJson.cardSummary;
             document.getElementById('deepenResCardCore').innerText = resultJson.cardCoreMeaning;
@@ -1479,35 +1301,31 @@
             switchScreen('stepDeepenResult');
         }
 
-        // --- STREAMING_CHUNK: Formatting and Helpers... ---
-        // --- SHARE RESULTS TO CLIPBOARD ---
         function shareResults() {
             if (!state.resultData) return;
 
             const d = state.resultData;
             const themeNames = { love: "연애운", wealth: "재물운", career: "직업/커리어", relations: "인간관계" };
             
-            let text = `[아스트라 타로 - 운명의 점사 결과지]\n`;
-            text += `테마: ${themeNames[state.theme]} > ${state.subCategoryLabel}\n`;
-            if (state.customDetail) text += `사연: ${state.customDetail}\n`;
+            let text = `[아스트라 타로 - 영혼의 운명적 결과지]\n`;
+            text += `고민 주제: ${themeNames[state.theme]} > ${state.subCategoryLabel}\n`;
+            if (state.customDetail) text += `질문자 사연: ${state.customDetail}\n`;
             text += `------------------------------------\n`;
-            text += `🌌 종합 평결: "${d.overallSummary}"\n\n`;
+            text += `🌌 우주의 판결: "${d.overallSummary}"\n\n`;
             text += `1. 과거/상황: ${d.card1.cardName}\n`;
-            text += `- 기운: ${d.card1.energy}\n`;
-            text += `- 사연 매칭: ${d.card1.app}\n\n`;
+            text += `- 기운 원형: ${d.card1.energy}\n`;
+            text += `- 사연의 축: ${d.card1.app}\n\n`;
             text += `2. 현재/장애물: ${d.card2.cardName}\n`;
-            text += `- 기운: ${d.card2.energy}\n`;
-            text += `- 사연 매칭: ${d.card2.app}\n\n`;
+            text += `- 기운 원형: ${d.card2.energy}\n`;
+            text += `- 장벽 분석: ${d.card2.app}\n\n`;
             text += `3. 미래/조언: ${d.card3.cardName}\n`;
-            text += `- 기운: ${d.card3.energy}\n`;
-            text += `- 해결 조언: ${d.card3.app}\n`;
-            text += `- 경계할 부분: ${d.card3.caution}\n`;
-            text += `- 나를 도울 귀인: ${d.card3.lucky}\n\n`;
-            text += `🔮 아스트라의 최종 솔루션:\n${d.synthesis}\n`;
+            text += `- 도달할 궤적: ${d.card3.app}\n`;
+            text += `- 내적 경고: ${d.card3.caution}\n`;
+            text += `- 우연의 귀인: ${d.card3.lucky}\n\n`;
+            text += `🔮 아스트라의 최종 구원 솔루션:\n${d.synthesis.replace(/<br>/g, '\n').replace(/<\/?[^>]+(>|$)/g, "")}\n`;
             text += `------------------------------------\n`;
-            text += `* 아스트라 타로와 함께 당신의 우주를 항해해 보세요.`;
+            text += `* 아스트라 타로와 함께 당신 안의 위대한 우주를 조율하십시오.`;
 
-            // Copy utilizing document.execCommand (reliable in iframe canvas setup)
             const tempInput = document.createElement("textarea");
             tempInput.value = text;
             document.body.appendChild(tempInput);
@@ -1515,7 +1333,7 @@
             document.execCommand("copy");
             document.body.removeChild(tempInput);
 
-            showAlert("타로 해설 결과가 클립보드에 깔끔하게 복사되었습니다. 편하신 곳에 붙여넣어 보관하세요!");
+            showAlert("아스트라의 특별한 비방 결과지가 클립보드에 무사히 봉인되었습니다. 필요한 곳에 붙여넣어 평생 소장해 보세요!");
         }
     </script>
 </body>
