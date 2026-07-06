@@ -439,11 +439,12 @@
                 </button>
             </div>
 
-            <div class="mt-8 flex flex-col md:flex-row gap-3 justify-center">
-                <button onclick="shareResults()" class="flex-1 max-w-xs py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
+            <!-- 모바일 완벽 대응 미려한 정렬 영역 -->
+            <div class="mt-8 flex flex-col items-center md:flex-row justify-center gap-4">
+                <button onclick="shareResults()" class="w-full max-w-xs py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-md">
                     <i class="fa-solid fa-copy"></i> 해설 비방문 전체 복사하기
                 </button>
-                <button onclick="goHome()" class="flex-1 max-w-xs py-4 bg-[#160f38] hover:bg-[#25195c] border border-[#E8C35A]/30 text-[#FAF0B5] text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
+                <button onclick="goHome()" class="w-full max-w-xs py-4 bg-[#160f38] hover:bg-[#25195c] border border-[#E8C35A]/30 text-[#FAF0B5] text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-md">
                     <i class="fa-solid fa-home"></i> 첫 페이지로 돌아가기
                 </button>
             </div>
@@ -497,11 +498,11 @@
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-                <button onclick="backToResult()" class="flex-1 py-3.5 bg-[#160f38] hover:bg-[#25195c] border border-[#E8C35A]/30 text-[#FAF0B5] text-xs font-bold rounded-xl transition">
+            <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto items-center">
+                <button onclick="backToResult()" class="w-full max-w-xs sm:flex-1 py-3.5 bg-[#160f38] hover:bg-[#25195c] border border-[#E8C35A]/30 text-[#FAF0B5] text-xs font-bold rounded-xl transition">
                     종합 결과지 다시 읽기
                 </button>
-                <button onclick="goHome()" class="flex-1 py-3.5 bg-gradient-to-r from-[#B88F25] to-[#E8C35A] text-black text-xs font-extrabold rounded-xl transition">
+                <button onclick="goHome()" class="w-full max-w-xs sm:flex-1 py-3.5 bg-gradient-to-r from-[#B88F25] to-[#E8C35A] text-black text-xs font-extrabold rounded-xl transition">
                     새 운명 펼쳐보기 <i class="fa-solid fa-arrow-right ml-1"></i>
                 </button>
             </div>
@@ -1035,7 +1036,8 @@
                 const activeKey = customKey ? customKey : apiKey;
 
                 if (activeKey) {
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${activeKey}`;
+                    // 프리뷰 전용 정식 모델인 gemini-2.5-flash-preview-09-2025 모델로 교체!
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeKey}`;
                     const payload = {
                         contents: [{ parts: [{ text: userPrompt }] }],
                         generationConfig: { responseMimeType: "application/json" },
@@ -1111,7 +1113,7 @@
             } else {
                 customSynthesis = `🔮 **아스트라의 특별 인간관계/인덕 비방**<br><br>타인은 나의 깊은 내적 그림자가 무의식적으로 투사되는 소중한 거울입니다. '${subCategoryLabel}' 사태의 복잡한 실타래를 깔끔히 잘라내기 위한 특별 비약을 제공합니다.<br><br>
 - **오늘의 비방 만트라**: <strong class="text-[#E8C35A] font-bold">"나는 타인이 나에게 강요하는 탁한 에너지를 완전히 반사하며, 나의 존엄과 영혼 영역을 투명하게 수호한다."</strong><br>
-- **에너지 조율 오브제**: 자연의 매끄러운 조약돌, 혹은 진한 녹색 잎을 지닌 미니 화분.<br>
+- **...에너지 조율 오브제**: 자연의 매끄러운 조약돌, 혹은 진한 녹색 잎을 지닌 미니 화분.<br>
 - **취침 전 리추얼**: 매일 밤 주무시기 전, 나를 힘들게 한 상대방의 가상의 아우라 주위에 단단한 푸른빛 결계막을 두른 뒤 미련 없이 우주 너머 공중으로 띄워 멀리 흘려보내는 의식을 거행하십시오. 타인과의 감정적 빚이 단숨에 고요해질 것입니다.`;
             }
 
@@ -1273,7 +1275,8 @@
                 const activeKey = customKey ? customKey : apiKey;
 
                 if (activeKey) {
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${activeKey}`;
+                    // 프리뷰 전용 정식 모델명 gemini-2.5-flash-preview-09-2025로 교환!
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeKey}`;
                     const payload = {
                         contents: [{ parts: [{ text: userPrompt }] }],
                         generationConfig: { responseMimeType: "application/json" },
