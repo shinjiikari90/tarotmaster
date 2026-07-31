@@ -111,6 +111,14 @@
             border-radius: 4px;
         }
 
+        /* Fix mobile browser native date input width overflow */
+        input[type="date"] {
+            -webkit-appearance: none;
+            min-height: 48px;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
         /* Twinkling golden & purple star bg generator effect on light background */
         .star {
             position: absolute;
@@ -152,13 +160,13 @@
                 
                 <!-- Birthdate Input -->
                 <div class="space-y-2">
-                    <label for="birthdate" class="block text-base sm:text-lg font-jua text-purple-950 flex items-center justify-between">
+                    <label for="birthdate" class="block text-base sm:text-lg font-jua text-purple-950 flex flex-wrap items-center justify-between gap-1">
                         <span>📅 생년월일 선택</span>
                         <span class="text-xs font-normal text-purple-700">* 달력 아이콘을 눌러 선택하세요</span>
                     </label>
-                    <div class="relative">
+                    <div class="relative w-full min-w-0 overflow-hidden rounded-2xl">
                         <input type="date" id="birthdate" required
-                            class="w-full bg-white border border-purple-300 rounded-2xl px-4 py-3 sm:py-4 text-base sm:text-lg text-purple-950 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all shadow-sm font-semibold cursor-pointer">
+                            class="w-full max-w-full box-border bg-white border border-purple-300 rounded-2xl px-3 sm:px-4 py-3 sm:py-4 text-base sm:text-lg text-purple-950 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all shadow-sm font-semibold cursor-pointer block">
                     </div>
                 </div>
 
@@ -242,118 +250,118 @@
         <section id="result-section" class="hidden space-y-6 transition-all duration-500">
             
             <!-- User Cosmic Summary Card -->
-            <div class="glass-card rounded-3xl p-5 sm:p-6 text-center relative overflow-hidden">
+            <div class="glass-card rounded-3xl p-5 sm:p-6 text-center relative overflow-hidden break-keep">
                 <div class="absolute -right-6 -top-6 text-8xl opacity-10 pointer-events-none text-purple-900">✨</div>
                 
-                <div class="inline-block bg-purple-100 border border-purple-300 px-4 py-1.5 rounded-full text-xs sm:text-sm text-purple-900 font-bold mb-2">
+                <div class="inline-flex items-center gap-1.5 bg-purple-100 border border-purple-300 px-4 py-1.5 rounded-full text-xs sm:text-sm text-purple-900 font-bold mb-2">
                     <span id="res-zodiac-sign">♈ 양자리</span> • <span id="res-planet">화성</span> 수호 성좌 궤도
                 </div>
 
-                <h2 class="text-xl sm:text-2xl font-jua text-purple-950">
-                    <span id="res-user-name" class="text-amber-700">운명자</span> 님의 <br class="xs:hidden">오늘의 천기누설 처방전 📜
+                <h2 class="text-xl sm:text-2xl font-jua text-purple-950 leading-snug">
+                    <span id="res-user-name" class="text-amber-700">운명자</span> 님의 <br class="hidden sm:inline">오늘의 천기누설 처방전 📜
                 </h2>
                 <p class="text-xs sm:text-sm text-purple-800 font-medium mt-1" id="res-date-str">오늘 기준 우주 기운</p>
             </div>
 
             <!-- FOOD TO EAT (MUST EAT ONE BITE!) -->
-            <div class="glass-card-gold rounded-3xl p-6 sm:p-7 relative overflow-hidden transition-all hover:border-amber-500">
-                <div class="flex items-center justify-between mb-4 border-b border-amber-300 pb-3">
-                    <div class="flex items-center gap-2">
-                        <span class="text-2xl sm:text-3xl">✨</span>
-                        <h3 class="text-xl sm:text-2xl font-jua text-amber-800">한 입만이라도 꼭 먹어야 할 음식</h3>
+            <div class="glass-card-gold rounded-3xl p-5 sm:p-7 relative overflow-hidden transition-all hover:border-amber-500 break-keep">
+                <div class="flex items-center justify-between mb-4 border-b border-amber-300/70 pb-3 gap-2">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="text-2xl sm:text-3xl shrink-0">✨</span>
+                        <h3 class="text-lg sm:text-2xl font-jua text-amber-900 truncate">한 입만이라도 꼭 먹어야 할 음식</h3>
                     </div>
-                    <span class="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full border border-amber-300">대길(大吉) 메뉴</span>
+                    <span class="bg-amber-100 text-amber-900 text-xs font-bold px-2.5 py-1 rounded-full border border-amber-300 shrink-0">대길(大吉)</span>
                 </div>
 
                 <!-- Main Must Eat Food -->
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-5">
-                    <div id="eat-icon" class="text-6xl sm:text-7xl bg-amber-50 p-4 rounded-2xl border border-amber-300 shadow-inner shrink-0 animate-bounce-subtle">
+                    <div id="eat-icon" class="text-5xl sm:text-7xl bg-amber-50 p-3.5 sm:p-4 rounded-2xl border border-amber-300 shadow-inner shrink-0 animate-bounce-subtle">
                         🥘
                     </div>
-                    <div class="space-y-1 text-center sm:text-left flex-grow">
+                    <div class="space-y-1 text-center sm:text-left flex-grow w-full min-w-0">
                         <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                             <h4 id="eat-name" class="text-2xl sm:text-3xl font-jua text-slate-900 tracking-wide">차돌 된장찌개</h4>
                             <span id="eat-category" class="bg-amber-200 text-amber-950 font-bold text-xs px-2.5 py-0.5 rounded-md">한식</span>
                         </div>
-                        <p id="eat-quote" class="text-amber-900 text-sm italic font-semibold">"우주의 에너지 순환을 극대화시켜주는 고소한 국물!"</p>
+                        <p id="eat-quote" class="text-amber-900 text-xs sm:text-sm italic font-semibold leading-relaxed">"우주의 에너지 순환을 극대화시켜주는 고소한 국물!"</p>
                     </div>
                 </div>
 
                 <!-- Astrological Ground & "야르~" Meme logic -->
-                <div class="bg-white/90 rounded-2xl p-4 border border-amber-200/80 mb-4 shadow-sm">
-                    <h5 class="text-xs font-bold text-amber-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                <div class="bg-white/90 rounded-2xl p-4 border border-amber-200/80 mb-4 shadow-sm text-left">
+                    <h5 class="text-xs font-bold text-amber-800 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-moon text-amber-600"></i> 점성술 기반 대길 사유
                     </h5>
-                    <p id="eat-reason" class="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
+                    <p id="eat-reason" class="text-sm sm:text-base text-slate-800 leading-relaxed font-normal text-left break-keep">
                         현재 행성 배치상 목성의 긍정적 파동이 당신의 위장 영역에 강하게 들어오는 날입니다! 이 음식을 한 입 먹는 순간 막혀있던 액운이 순식간에 뻥 뚫리게 됩니다. **야르~! 오늘 점심은 무조건 성공이다!** 🚀
                     </p>
                 </div>
 
                 <!-- Substitute Food Option -->
-                <div class="bg-amber-100/70 border border-amber-300 rounded-xl p-3 flex items-center justify-between text-xs sm:text-sm">
+                <div class="bg-amber-100/70 border border-amber-300 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs sm:text-sm gap-1 sm:gap-2 text-left">
                     <div class="flex items-center gap-2">
-                        <span class="text-xl">💡</span>
+                        <span class="text-lg sm:text-xl shrink-0">💡</span>
                         <span class="text-amber-950 font-semibold">주변에 없다면? 대체 메뉴:</span>
                     </div>
-                    <span id="eat-substitute" class="font-jua text-amber-800 text-sm sm:text-base">🍲 순두부찌개</span>
+                    <span id="eat-substitute" class="font-jua text-amber-900 text-sm sm:text-base pl-7 sm:pl-0">🍲 순두부찌개</span>
                 </div>
             </div>
 
             <!-- FOOD TO AVOID (NEVER EAT!) -->
-            <div class="glass-card-danger rounded-3xl p-6 sm:p-7 relative overflow-hidden transition-all hover:border-pink-500">
-                <div class="flex items-center justify-between mb-4 border-b border-pink-300 pb-3">
-                    <div class="flex items-center gap-2">
-                        <span class="text-2xl sm:text-3xl">🚫</span>
-                        <h3 class="text-xl sm:text-2xl font-jua text-pink-800">오늘 절대 먹지 말아야 할 음식</h3>
+            <div class="glass-card-danger rounded-3xl p-5 sm:p-7 relative overflow-hidden transition-all hover:border-pink-500 break-keep">
+                <div class="flex items-center justify-between mb-4 border-b border-pink-300/70 pb-3 gap-2">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="text-2xl sm:text-3xl shrink-0">🚫</span>
+                        <h3 class="text-lg sm:text-2xl font-jua text-pink-900 truncate">오늘 절대 먹지 말아야 할 음식</h3>
                     </div>
-                    <span class="bg-pink-100 text-pink-900 text-xs font-bold px-3 py-1 rounded-full border border-pink-300">대흉(大凶) 경계</span>
+                    <span class="bg-pink-100 text-pink-900 text-xs font-bold px-2.5 py-1 rounded-full border border-pink-300 shrink-0">대흉(大凶)</span>
                 </div>
 
                 <!-- Main Avoid Food -->
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-5">
-                    <div id="avoid-icon" class="text-6xl sm:text-7xl bg-pink-50 p-4 rounded-2xl border border-pink-300 shadow-inner shrink-0">
+                    <div id="avoid-icon" class="text-5xl sm:text-7xl bg-pink-50 p-3.5 sm:p-4 rounded-2xl border border-pink-300 shadow-inner shrink-0">
                         🧊
                     </div>
-                    <div class="space-y-1 text-center sm:text-left flex-grow">
+                    <div class="space-y-1 text-center sm:text-left flex-grow w-full min-w-0">
                         <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                             <h4 id="avoid-name" class="text-2xl sm:text-3xl font-jua text-slate-900 tracking-wide">아이스 아메리카노</h4>
                             <span id="avoid-category" class="bg-pink-200 text-pink-950 font-bold text-xs px-2.5 py-0.5 rounded-md">음료/카페</span>
                         </div>
-                        <p id="avoid-quote" class="text-pink-900 text-sm italic font-semibold">"오늘 냉기가 과하면 행운의 별자리가 얼어붙습니다!"</p>
+                        <p id="avoid-quote" class="text-pink-900 text-xs sm:text-sm italic font-semibold leading-relaxed">"오늘 냉기가 과하면 행운의 별자리가 얼어붙습니다!"</p>
                     </div>
                 </div>
 
                 <!-- Astrological Ground for Avoid -->
-                <div class="bg-white/90 rounded-2xl p-4 border border-pink-200/80 mb-4 shadow-sm">
-                    <h5 class="text-xs font-bold text-pink-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                <div class="bg-white/90 rounded-2xl p-4 border border-pink-200/80 mb-4 shadow-sm text-left">
+                    <h5 class="text-xs font-bold text-pink-800 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-triangle-exclamation text-pink-600"></i> 점성술 기반 대흉 사유
                     </h5>
-                    <p id="avoid-reason" class="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
+                    <p id="avoid-reason" class="text-sm sm:text-base text-slate-800 leading-relaxed font-normal text-left break-keep">
                         화성과 토성이 각을 이루며 당신의 기운에 강력한 자극을 주고 있습니다. 차가운 음료나 카페인이 입에 들어가는 순간 소화기관의 우주 기운이 냉각되어 피로도가 급상승할 위험이 높습니다!
                     </p>
                 </div>
 
                 <!-- Avoid Substitute / Similar Warning Option -->
-                <div class="bg-pink-100/70 border border-pink-300 rounded-xl p-3 flex items-center justify-between text-xs sm:text-sm">
+                <div class="bg-pink-100/70 border border-pink-300 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs sm:text-sm gap-1 sm:gap-2 text-left">
                     <div class="flex items-center gap-2">
-                        <span class="text-xl">⚠️</span>
+                        <span class="text-lg sm:text-xl shrink-0">⚠️</span>
                         <span class="text-pink-950 font-semibold">유사하게 피해야 할 음식:</span>
                     </div>
-                    <span id="avoid-substitute" class="font-jua text-pink-800 text-sm sm:text-base">🧋 차가운 밀크티</span>
+                    <span id="avoid-substitute" class="font-jua text-pink-900 text-sm sm:text-base pl-7 sm:pl-0">🧋 차가운 밀크티</span>
                 </div>
             </div>
 
             <!-- WITTY ASTROLOGICAL WEIGHT & ENERGY INDEX -->
-            <div class="glass-card rounded-2xl p-5 flex items-center justify-between border border-purple-200">
-                <div class="flex items-center gap-3">
-                    <span class="text-3xl">⚖️</span>
-                    <div>
+            <div class="glass-card rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border border-purple-200 break-keep">
+                <div class="flex items-start sm:items-center gap-3">
+                    <span class="text-2xl sm:text-3xl shrink-0">⚖️</span>
+                    <div class="text-left">
                         <h5 class="font-jua text-purple-950 text-base">우주 체중계 보정 지수</h5>
-                        <p id="weight-joke" class="text-xs text-purple-900 font-medium">"오늘 대길 음식을 먹을 경우, 칼로리는 0kcal로 수렴합니다."</p>
+                        <p id="weight-joke" class="text-xs text-purple-900 font-medium mt-0.5 leading-relaxed">"오늘 대길 음식을 먹을 경우, 칼로리는 0kcal로 수렴합니다."</p>
                     </div>
                 </div>
-                <div class="text-right">
-                    <span id="weight-value" class="font-jua text-lg sm:text-xl text-emerald-700 font-bold">-15% 흡수율</span>
+                <div class="self-end sm:self-auto text-right shrink-0">
+                    <span id="weight-value" class="font-jua text-base sm:text-xl text-emerald-700 font-bold bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200 inline-block">-15% 흡수율</span>
                 </div>
             </div>
 
